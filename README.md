@@ -8,7 +8,7 @@ Sistem Pendataan Ruangan ini adalah sebuah platform yang dirancang khusus untuk 
 
 ## Fitur Utama
 
-- **Pendataan Mudah**: Pengguna dapat dengan cepat mendata ruangan dengan melakukan scan QR code yang ada di setiap ruangan.
+- **Pendataan Mudah**: Pengguna dapat dengan cepat mendata ruangan dengan melakukan pengisian saat berada di setiap ruangan.
 
 - **Informasi yang Lengkap**: Sistem ini memungkinkan pengguna untuk memasukkan informasi yang relevan seperti nama kelas, program studi, mata kuliah, dan sebagainya.
 
