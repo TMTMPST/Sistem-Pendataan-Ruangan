@@ -14,9 +14,10 @@ public class main {
         System.out.println("  ____) |_| |_ ____) |  | |  | |____| |  | | | |    | |____| | \\ \\| |  / ____ \\ |__| / ____ \\| . \\  / ____ \\| |\\  |");
         System.out.println(" |_____/|_____|_____/   |_|  |______|_|  |_| |_|    |______|_|  \\_\\_| /_/    \\_\\____/_/    \\_\\_|\\_\\/_/    \\_\\_| \\_|");
         System.out.println("====================================================================================================================");
+        
         System.out.print("Masukkan jenis pajak: ");
         pajak=input.nextInt();
-
+        
         if(pajak==1){
             Scanner sc= new Scanner(System.in);
             int gaji, tanggungan=4500000,PTKP, pribadi=54000000;
