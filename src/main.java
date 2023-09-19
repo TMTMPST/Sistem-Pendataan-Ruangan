@@ -1,56 +1,35 @@
 import java.util.Scanner;
 public class main {
     public static void main(String[] args) {
+
+Scanner input=new Scanner(System.in);
+        int pajak;
         System.out.println("_____________________________");
         System.out.println("_____________________________");
-        System.out.println(" Pendataan Ruangan Di Gedung ");
-        System.out.println("             JTI             ");
+        System.out.println(" Selamat Datang di Kalkulator");
+        System.out.println("            Pajak            ");
         System.out.println("    D-IV Teknik Informatika  ");
         System.out.println("             2023            ");
         System.out.println("_____________________________");
         System.out.println("_____________________________");
+        System.out.print("Masukkan jenis pajak: ");
+        pajak=input.nextInt();
 
-        Scanner input=new Scanner(System.in);
+        if(pajak==1){
+            Scanner sc= new Scanner(System.in);
+            int gaji, tanggungan=4500000,PTKP, pribadi=54000000;
+            double PPh=0.05, totpajak;
+            byte jmltanggungan;
 
-        int lantai;
+            System.out.println("masukkan gaji bersih selama 1 tahun:");
+            gaji=sc.nextInt();
+            System.out.println("masukkan jumlah tanggungan");
+            System.out.print("(anak + istri):");
+            jmltanggungan=sc.nextByte();
 
-        System.out.println("masukkan lantai tujuan");
-        lantai=input.nextInt();
-
-        if(lantai==5){           
-            Scanner scanner=new Scanner(System.in);
-        String ruangan;
-            System.out.println("      pilih ruangan       ");
-            System.out.println("input | ruangan         | ");
-            System.out.println("B1    | RT1             | ");
-            System.out.println("B2    | RT2             | ");
-            System.out.println("B3    | RT3             | ");
-            System.out.println("B4    | RT4             | ");
-            System.out.println("B5    | RT5             | ");
-            System.out.println("B6    | RT6             | ");
-            System.out.println("B7    | RT7             | ");
-            System.out.println("B8    | LPY1            | ");
-            System.out.println("__________________________");
-
-            System.out.print(" masukkan ruangan tujuan: ");
-            ruangan=scanner.nextLine();
-            System.out.println("ruangan ini kosong");
-
-        }else if (lantai==6){
-        String ruangan;
-        Scanner sc=new Scanner(System.in);
-            System.out.println("      pilih ruangan       ");
-            System.out.println("input | ruangan         | ");
-            System.out.println("T1    | LSI1            | ");
-            System.out.println("T2    | LPY2            | ");
-            System.out.println("T3    | LSI2            | ");
-            System.out.println("T4    | LPY3            | ");
-            System.out.println("T5    | LSI3            | ");
-            System.out.println("__________________________");
-
-            System.out.print(" masukkan ruangan tujuan: ");
-            ruangan=sc.nextLine();
-            System.out.println("ruangan ini kosong");
+            PTKP=(jmltanggungan*tanggungan)+pribadi;
+            totpajak=(gaji-PTKP)*PPh;
+            System.out.println("Total pajak anda: " + totpajak);
         }
     }
 }
