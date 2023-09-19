@@ -4,7 +4,7 @@ public class main {
 
     public static void main(String[] args) {
 
-Scanner input=new Scanner(System.in);
+        Scanner input=new Scanner(System.in);
         int pajak;
         System.out.println("====================================================================================================================");
         System.out.println("   _____ _____  _____ _______ ______ __  __   _____  ______ _____  _____            _         _  __          _   _ ");
