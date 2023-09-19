@@ -1,66 +1,13 @@
-import java.util.Scanner;
 public class main {
+
     public static void main(String[] args) {
-        System.out.println("_____________________________");
-        System.out.println("_____________________________");
-        System.out.println(" Pendataan Ruangan Di Gedung ");
-        System.out.println("             JTI             ");
-        System.out.println("    D-IV Teknik Informatika  ");
-        System.out.println("             2023            ");
-        System.out.println("_____________________________");
-        System.out.println("_____________________________");
-
-        Scanner input=new Scanner(System.in);
-        int lantai;
-
-        while (true) {
-            System.out.print("Masukkan lantai tujuan : ");
-            if (input.hasNextInt()) {
-                lantai = input.nextInt();
-                input.nextLine();
-            
-            if(lantai==5){           
-                Scanner scanner=new Scanner(System.in);
-                String ruangan;
-                System.out.println("      pilih ruangan       ");
-                System.out.println("input | ruangan         | ");
-                System.out.println("B1    | RT1             | ");
-                System.out.println("B2    | RT2             | ");
-                System.out.println("B3    | RT3             | ");
-                System.out.println("B4    | RT4             | ");
-                System.out.println("B5    | RT5             | ");
-                System.out.println("B6    | RT6             | ");
-                System.out.println("B7    | RT7             | ");
-                System.out.println("B8    | LPY1            | ");
-                System.out.println("__________________________");
-                
-                System.out.print(" masukkan ruangan tujuan: ");
-                ruangan=scanner.nextLine();
-                System.out.println("ruangan ini kosong");
-
-        }else if (lantai==6){
-            String ruangan;
-            Scanner sc=new Scanner(System.in);
-            System.out.println("      pilih ruangan       ");
-            System.out.println("input | ruangan         | ");
-            System.out.println("T1    | LSI1            | ");
-            System.out.println("T2    | LPY2            | ");
-            System.out.println("T3    | LSI2            | ");
-            System.out.println("T4    | LPY3            | ");
-            System.out.println("T5    | LSI3            | ");
-            System.out.println("__________________________");
-            
-            System.out.print(" masukkan ruangan tujuan: ");
-            ruangan=sc.nextLine();
-            System.out.println("ruangan ini kosong");
-        }else  {
-            System.out.println("Lantai Tidak Ditemukan");
-        }
-    }else {
-        System.out.println("Input Bukan Angka ");   
-        input.nextLine();
-    }
-
-    }
+        System.out.println("====================================================================================================================");
+        System.out.println("   _____ _____  _____ _______ ______ __  __   _____  ______ _____  _____            _         _  __          _   _ ");
+        System.out.println("  / ____|_   _|/ ____|__   __|  ____|  \\/  | |  __ \\|  ____|  __ \\|  __ \\ /\\       | |  /\\   | |/ /    /\\   | \\ | |");
+        System.out.println(" | (___   | | | (___    | |  | |__  | \\  / | | |__) | |__  | |__) | |__) /  \\      | | /  \\  | ' /    /  \\  |  \\| |");
+        System.out.println("  \\___ \\  | |  \\___ \\   | |  |  __| | |\\/| | |  ___/|  __| |  _  /|  ___/ /\\ \\ _   | |/ /\\ \\ |  <    / /\\ \\ | . ` |");
+        System.out.println("  ____) |_| |_ ____) |  | |  | |____| |  | | | |    | |____| | \\ \\| |  / ____ \\ |__| / ____ \\| . \\  / ____ \\| |\\  |");
+        System.out.println(" |_____/|_____|_____/   |_|  |______|_|  |_| |_|    |______|_|  \\_\\_| /_/    \\_\\____/_/    \\_\\_|\\_\\/_/    \\_\\_| \\_|");
+        System.out.println("====================================================================================================================");
     }
 }
