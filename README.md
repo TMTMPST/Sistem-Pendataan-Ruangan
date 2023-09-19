@@ -26,8 +26,6 @@ Aplikasi Sistem Perpajakan akan mencakup fitur - fitur berikut :
 
 - Perhitungan otomatis PPH, PBB, dan Pajak Kendaraan
 
-- Registrasi dan Pembayaran Pajak Kendaraan
-
 - Laporan dan dokumentasi pajak yang mudah diakses
 
 ## Kontribusi
