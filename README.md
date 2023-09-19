@@ -4,7 +4,7 @@ Selamat datang di **Sistem Pendataan Ruangan Gedung JTI**! Platform inovatif yan
 
 ## Deskripsi Proyek
 
-Sistem Pendataan Ruangan ini adalah sebuah platform yang dirancang khusus untuk Gedung JTI di POLINEMA. Tujuan utamanya adalah untuk mendata dan mengelola penggunaan ruangan secara efektif. Kami menggunakan teknologi QR code untuk memfasilitasi pendataan dan pemantauan penggunaan ruangan. Dengan menggunakan sistem ini, pengguna dapat dengan mudah mendata ruangan yang digunakan dan memasukkan informasi penting seperti kelas, program studi, mata kuliah, dan lainnya.
+Sistem Pendataan Ruangan ini adalah sebuah platform yang dirancang khusus untuk Gedung JTI di POLINEMA. Tujuan utamanya adalah untuk mendata dan mengelola penggunaan ruangan secara efektif. Dengan menggunakan sistem ini, pengguna dapat dengan mudah mendata ruangan yang digunakan dan memasukkan informasi penting seperti kelas, program studi, mata kuliah, dan lainnya.
 
 ## Fitur Utama
 
