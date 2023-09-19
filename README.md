@@ -1,30 +1,34 @@
-# Sistem Pendataan Ruangan di Gedung JTI
+# Sistem Perpajakan
 
-Selamat datang di **Sistem Pendataan Ruangan Gedung JTI**! Platform inovatif yang akan membantu anda dalam mengelola dan memanfaatkan ruangan secara lebih efisien.
+Selamat datang di **Sistem Perpajakan**! Platform inovatif yang akan membantu anda dalam mengelola pajak anda.
 
 ## Deskripsi Proyek
 
-Sistem Pendataan Ruangan ini adalah sebuah platform yang dirancang khusus untuk Gedung JTI di POLINEMA. Tujuan utamanya adalah untuk mendata dan mengelola penggunaan ruangan secara efektif. Dengan menggunakan sistem ini, pengguna dapat dengan mudah mendata ruangan yang digunakan dan memasukkan informasi penting seperti kelas, program studi, mata kuliah, dan lainnya.
+Sistem Pepajakan ini aplikasi berbasis perangkat lunak yang dapat membantu dalam memanajemen dan pemrosesan perpajakan. Proyek ini mencakup aspek perpajakan seperti Pajak Penghasilan (PPH), Pajak Bumi dan Bangunan (PBB), dan Pajak Kendaraan.
+
+## Tujuan
+Tujuan dari proyek Sistem Perpajakan ini adalah :
+
+- Membuat aplikasi perpajakan yang efisien dan mudah digunakan.
+  
+- Mengotomatisasi perhitungan dan pelaporan pajak.
+  
+- Meningkatkan transparansi dan akurasi dalam pembayaran pajak.
+  
+- Memfasilitasi komunikasi antara pemilik usaha dan lembaga perpajakan.
+  
 
 ## Fitur Utama
 
-- **Pendataan Mudah**: Pengguna dapat dengan cepat mendata ruangan dengan melakukan pengisian saat berada di setiap ruangan.
+Aplikasi Sistem Perpajakan akan mencakup fitur - fitur berikut :
 
-- **Informasi yang Lengkap**: Sistem ini memungkinkan pengguna untuk memasukkan informasi yang relevan seperti nama kelas, program studi, mata kuliah, dan sebagainya.
+- Manajemen data pajak
 
-- **Pemantauan Real-time**: Data pendataan akan tersedia secara real-time pada sebuah platform yang dapat diakses oleh seluruh mahasiswa dan dosen di Gedung JTI.
+- Perhitungan otomatis PPH, PBB, dan Pajak Kendaraan
 
-- **Pemantauan Jam Masuk dan Keluar**: Anda dapat dengan mudah melihat jam masuk dan keluar mahasiswa pada setiap ruangan, menghilangkan kebutuhan untuk pengecekan langsung.
+- Registrasi dan Pembayaran Pajak Kendaraan
 
-## Manfaat
-
-Sistem Pendataan Ruangan ini akan membawa berbagai manfaat, termasuk:
-
-- **Efisiensi Penggunaan Ruangan**: Dengan melihat data penggunaan ruangan secara real-time, pengguna dapat mengatur jadwal penggunaan ruangan dengan lebih efisien.
-
-- **Penghematan Waktu**: Dosen dan mahasiswa tidak perlu lagi menghabiskan waktu mencari ruangan yang tersedia atau mengecek secara langsung.
-
-- **Peningkatan Produktivitas**: Dengan lebih banyak waktu yang tersedia, dosen dan mahasiswa dapat fokus pada kegiatan pembelajaran dan pengajaran.
+- Laporan dan dokumentasi pajak yang mudah diakses
 
 ## Kontribusi
 
@@ -34,4 +38,4 @@ Sistem Pendataan Ruangan ini akan membawa berbagai manfaat, termasuk:
 
 ## Tentang Kami
 
-Sistem Pendataan Ruangan ini dikembangkan oleh Kelompok 10 kelas 1A yang bertujuan untuk meningkatkan efisiensi penggunaan ruangan di Gedung JTI.
+Sistem Pepajakan ini dikembangkan oleh Kelompok 10 kelas 1A
