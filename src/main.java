@@ -32,8 +32,9 @@ Scanner input=new Scanner(System.in);
 
         if(pajak==1){
             Scanner sc= new Scanner(System.in);
-            int gaji, tanggungan=4500000,PTKP, pribadi=54000000;
-            double PPh=0.05, totpajak;
+            int gaji, tanggungan=4500000,PTKP, pribadi=54000000, pkp;
+            double totpajak;
+            double PPh1=0.05,PPh2=0.15;
             byte jmltanggungan;
             String status;
 
@@ -48,9 +49,15 @@ Scanner input=new Scanner(System.in);
                 jmltanggungan=sc.nextByte();
 
                 PTKP=(jmltanggungan*tanggungan)+pribadi;
-                totpajak=(gaji-PTKP)*PPh;
-                System.out.println("Total pajak anda: " + totpajak);
-
+                pkp=gaji-PTKP;
+                
+                if(pkp<50000000){
+                    totpajak=pkp*PPh1;
+                    System.out.println("Total pajak anda: " + totpajak);
+                }else{
+                    totpajak=pkp*PPh2;
+                    System.out.println("Total pajak anda: " + totpajak);
+                }
             }else {
                 System.out.println("masukkan gaji bersih selama 1 tahun:");
                 gaji=sc.nextInt();
@@ -59,10 +66,15 @@ Scanner input=new Scanner(System.in);
                 jmltanggungan=sc.nextByte();
 
                 PTKP=(jmltanggungan*tanggungan)+pribadi;
-                totpajak=(gaji-PTKP)*PPh;
-                System.out.println("Total pajak anda: " + totpajak);
+                pkp=gaji-PTKP;
+                if(pkp<50000000){
+                    totpajak=pkp*PPh1;
+                    System.out.println("Total pajak anda: " + totpajak);
+                }else{
+                    totpajak=pkp*PPh2;
+                    System.out.println("Total pajak anda: " + totpajak);
                 }
-
+            }
     }else if(pajak==2){
             Scanner scan=new Scanner(System.in);
             int bumi, bangunan;
