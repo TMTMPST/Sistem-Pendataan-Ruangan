@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class main {
 
     public static void main(String[] args) {
@@ -11,8 +12,10 @@ public class main {
         System.out.println("  ____) |_| |_ ____) |  | |  | |____| |  | | | |    | |____| | \\ \\| |  / ____ \\ |__| / ____ \\| . \\  / ____ \\| |\\  |");
         System.out.println(" |_____/|_____|_____/   |_|  |______|_|  |_| |_|    |______|_|  \\_\\_| /_/    \\_\\____/_/    \\_\\_|\\_\\/_/    \\_\\_| \\_|");
         System.out.println("====================================================================================================================");
-Scanner input=new Scanner(System.in);
+
+        Scanner input=new Scanner(System.in);
         int pajak;
+
         System.out.println("_____________________________");
         System.out.println("_____________________________");
         System.out.println(" Selamat Datang di Kalkulator");
@@ -29,6 +32,7 @@ Scanner input=new Scanner(System.in);
         System.out.println("=============================");        
         System.out.print("Masukkan jenis pajak: ");
         pajak=input.nextInt();
+        input.close();
 
         if(pajak==1){
             Scanner sc= new Scanner(System.in);
@@ -75,6 +79,8 @@ Scanner input=new Scanner(System.in);
                     System.out.println("Total pajak anda: " + totpajak);
                 }
             }
+            sc.close();
+
     }else if(pajak==2){
             Scanner scan=new Scanner(System.in);
             int bumi, bangunan;
@@ -106,9 +112,9 @@ Scanner input=new Scanner(System.in);
                 totPBB=NJKP*PBB;
                 System.out.println("Total pajak anda: " + totPBB);
             }
+            scan.close();
     }else if(pajak==3){
 
     }
 }
 }
-
