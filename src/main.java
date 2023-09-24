@@ -32,7 +32,6 @@ public class main {
         System.out.println("=============================");        
         System.out.print("Masukkan jenis pajak: ");
         pajak=input.nextInt();
-        input.close();
 
         if(pajak==1){
             Scanner sc= new Scanner(System.in);
@@ -79,7 +78,6 @@ public class main {
                     System.out.println("Total pajak anda: " + totpajak);
                 }
             }
-            sc.close();
 
     }else if(pajak==2){
             Scanner scan=new Scanner(System.in);
@@ -88,11 +86,11 @@ public class main {
             int hargabumi,hargabangunan;
             double tetapan1=0.2, tetapan3=0.4, PBB=0.005;
             double NJOP, NJKP, totPBB, nilaiaset, tetapan2=12000000;
-
-            System.out.print("Masukkan luas bangunan anda  :");
-            luasbangunan=scan.nextInt();
+            
             System.out.print("Masukkan luas tanah anda     :");
             luasbumi=scan.nextInt();
+            System.out.print("Masukkan luas bangunan anda  :");
+            luasbangunan=scan.nextInt(); 
             System.out.print("Masukkan harga tanah/meter   :");
             hargabumi=scan.nextInt();
             System.out.print("Masukkan harga bangunan/meter:");
@@ -112,7 +110,7 @@ public class main {
                 totPBB=NJKP*PBB;
                 System.out.println("Total pajak anda: " + totPBB);
             }
-            scan.close();
+
     }else if(pajak==3){
         Scanner scanner = new Scanner(System.in);
         double  koefisien, tarifMotor, PKB, TNKB, motorThn, motor5Thn ;
