@@ -114,7 +114,28 @@ public class main {
             }
             scan.close();
     }else if(pajak==3){
+        Scanner scanner = new Scanner(System.in);
+        double  koefisien, tarifMotor, PKB, TNKB, motorThn, motor5Thn ;
+        int biayaAdmin = 50000, terbitSTNK = 100000, SWDKLLJ = 23000;
+        System.out.println("Masukkan Pajak Mobil / Motor : ");
+        int jmlKendaraan = input.nextInt();
 
+        //pajak motor
+        PKB = scanner.nextInt();
+        koefisien = scanner.nextInt();
+        motorThn = ((PKB / 2) * 100) * koefisien * 0.02; //tahunan
+
+        TNKB = scanner.nextInt();
+        motor5Thn = PKB + SWDKLLJ + TNKB + terbitSTNK + biayaAdmin;
+
+        //denda motor
+
+
+
+
+        //mobil tahunan
+        //mobil 5 tahunan
+        //denda mobil
     }
 }
 }
