@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public class main {
 
     public static void main(String[] args) {
@@ -12,10 +11,8 @@ public class main {
         System.out.println("  ____) |_| |_ ____) |  | |  | |____| |  | | | |    | |____| | \\ \\| |  / ____ \\ |__| / ____ \\| . \\  / ____ \\| |\\  |");
         System.out.println(" |_____/|_____|_____/   |_|  |______|_|  |_| |_|    |______|_|  \\_\\_| /_/    \\_\\____/_/    \\_\\_|\\_\\/_/    \\_\\_| \\_|");
         System.out.println("====================================================================================================================");
-
-        Scanner input=new Scanner(System.in);
+Scanner input=new Scanner(System.in);
         int pajak;
-
         System.out.println("_____________________________");
         System.out.println("_____________________________");
         System.out.println(" Selamat Datang di Kalkulator");
@@ -35,9 +32,8 @@ public class main {
 
         if(pajak==1){
             Scanner sc= new Scanner(System.in);
-            int gaji, tanggungan=4500000,PTKP, pribadi=54000000, pkp;
-            double totpajak;
-            double PPh1=0.05,PPh2=0.15;
+            int gaji, tanggungan=4500000,PTKP, pribadi=54000000, pkp, totpajak;
+            double PPh1=0.05,PPh2=0.15,PPh3=0.25,PPh4=0.3;
             byte jmltanggungan;
             String status;
 
@@ -55,10 +51,16 @@ public class main {
                 pkp=gaji-PTKP;
                 
                 if(pkp<50000000){
-                    totpajak=pkp*PPh1;
+                    totpajak=(int)(pkp*PPh1);
                     System.out.println("Total pajak anda: " + totpajak);
-                }else{
-                    totpajak=pkp*PPh2;
+                }else if(pkp>=50_000_000&&pkp<250_000_000){
+                    totpajak=(int)(pkp*PPh2);
+                    System.out.println("Total pajak anda: " + totpajak);
+                }else if(pkp>=250_000_000&&pkp<500_000_000){
+                    totpajak=(int)(pkp*PPh3);
+                    System.out.println("Total pajak anda: " + totpajak);
+                }else if(pkp>=500_000_000){
+                    totpajak=(int)(pkp*PPh4);
                     System.out.println("Total pajak anda: " + totpajak);
                 }
             }else {
@@ -71,26 +73,24 @@ public class main {
                 PTKP=(jmltanggungan*tanggungan)+pribadi;
                 pkp=gaji-PTKP;
                 if(pkp<50000000){
-                    totpajak=pkp*PPh1;
+                    totpajak=(int)(pkp*PPh1);
                     System.out.println("Total pajak anda: " + totpajak);
                 }else{
-                    totpajak=pkp*PPh2;
+                    totpajak=(int)(pkp*PPh2);
                     System.out.println("Total pajak anda: " + totpajak);
                 }
             }
-
-    }else if(pajak==2){
+        }else if(pajak==2){
             Scanner scan=new Scanner(System.in);
             int bumi, bangunan;
-            int luasbangunan, luasbumi;
-            int hargabumi,hargabangunan;
+            int NJOP, NJKP, totPBB, nilaiaset, tetapan2=12000000;
+            int luasbangunan, luasbumi, hargabumi, hargabangunan;
             double tetapan1=0.2, tetapan3=0.4, PBB=0.005;
-            double NJOP, NJKP, totPBB, nilaiaset, tetapan2=12000000;
-            
+
+            System.out.print("Masukkan luas bangunan anda  :");
+            luasbangunan=scan.nextInt();
             System.out.print("Masukkan luas tanah anda     :");
             luasbumi=scan.nextInt();
-            System.out.print("Masukkan luas bangunan anda  :");
-            luasbangunan=scan.nextInt(); 
             System.out.print("Masukkan harga tanah/meter   :");
             hargabumi=scan.nextInt();
             System.out.print("Masukkan harga bangunan/meter:");
@@ -102,38 +102,58 @@ public class main {
             nilaiaset=NJOP-tetapan2;
 
             if(nilaiaset < 1000000000){
-                NJKP=nilaiaset*tetapan1;
-                totPBB=NJKP*PBB;
+                NJKP=(int)(nilaiaset*tetapan1);
+                totPBB=(int)(NJKP*PBB);
                 System.out.println("Total pajak anda: " + totPBB);
             }else{
-                NJKP=nilaiaset*tetapan3;
-                totPBB=NJKP*PBB;
+                NJKP=(int)(nilaiaset*tetapan3);
+                totPBB=(int)(NJKP*PBB);
                 System.out.println("Total pajak anda: " + totPBB);
             }
+        }else if(pajak==3){
+            Scanner scan=new Scanner(System.in);
+            String jenPKB;        
+            System.out.print("Masukkan jenis PKB: ");
+            jenPKB=scan.nextLine();
 
-    }else if(pajak==3){
-        Scanner scanner = new Scanner(System.in);
-        double  koefisien, tarifMotor, PKB, TNKB, motorThn, motor5Thn ;
-        int biayaAdmin = 50000, terbitSTNK = 100000, SWDKLLJ = 23000;
-        System.out.println("Masukkan Pajak Mobil / Motor : ");
-        int jmlKendaraan = input.nextInt();
+            if(jenPKB.equalsIgnoreCase("motor")){
+                int cc, PKB, koefBobot, operasi1;
+                int TNKB, administrasi=50000, terbitSTNK, totPajak1, totPajak2;
+                float progresif=0.5f, presentase;
+                byte urutKendaraan;
+                
+                System.out.print("Kendaraan ke-                     : ");
+                urutKendaraan=scan.nextByte();
+                System.out.print("Masukkan koefisien bobot kendaraan: ");
+                koefBobot=scan.nextInt();
+                System.out.print("Masukkan nilai PKB kendaraan      : ");
+                PKB=scan.nextInt();
+                System.out.print("Masukkan cc kendaraan             : ");
+                cc=scan.nextInt();
+                System.out.print("Masukkan biaya pengesahan STNK    : ");
+                TNKB=scan.nextInt();
+                System.out.print("Masukkan biaya penerbitan STNK    : ");
+                terbitSTNK=scan.nextInt();
 
-        //pajak motor
-        PKB = scanner.nextInt();
-        koefisien = scanner.nextInt();
-        motorThn = ((PKB / 2) * 100) * koefisien * 0.02; //tahunan
+                if(cc<250){
+                    presentase=((urutKendaraan*progresif)+1)/100;
+                    operasi1=((PKB/2)*100)*koefBobot;
+                    totPajak1=(int)(operasi1*presentase);
+                    totPajak2= totPajak1+TNKB+terbitSTNK+35000+administrasi;
+                    System.out.println("Total pajak anda          : "+ totPajak1);
+                    System.out.println("Total pajak 5 tahunan anda: "+ totPajak2);
 
-        TNKB = scanner.nextInt();
-        motor5Thn = PKB + SWDKLLJ + TNKB + terbitSTNK + biayaAdmin;
-
-        //denda motor
-
-
-
-
-        //mobil tahunan
-        //mobil 5 tahunan
-        //denda mobil
+                }else{
+                    presentase=(urutKendaraan*progresif)+1;
+                    operasi1=((PKB/2)*100)*koefBobot;
+                    totPajak1=(int)(operasi1*presentase);
+                    totPajak2= totPajak1+TNKB+terbitSTNK+83000+administrasi;
+                    System.out.println("Total pajak anda          : "+ totPajak1);
+                    System.out.println("Total pajak 5 tahunan anda: "+ totPajak2);
+                }
+            }else{
+                    //mobil
+            }
     }
 }
 }
