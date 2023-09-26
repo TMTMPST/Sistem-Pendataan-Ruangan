@@ -81,35 +81,48 @@ Scanner input=new Scanner(System.in);
                 }
             }
         }else if(pajak==2){
-            Scanner scan=new Scanner(System.in);
-            int bumi, bangunan;
-            int NJOP, NJKP, totPBB, nilaiaset, tetapan2=12000000;
-            int luasbangunan, luasbumi, hargabumi, hargabangunan;
-            double tetapan1=0.2, tetapan3=0.4, PBB=0.005;
+            Scanner in = new Scanner(System.in);
 
-            System.out.print("Masukkan luas bangunan anda  :");
-            luasbangunan=scan.nextInt();
-            System.out.print("Masukkan luas tanah anda     :");
-            luasbumi=scan.nextInt();
-            System.out.print("Masukkan harga tanah/meter   :");
-            hargabumi=scan.nextInt();
-            System.out.print("Masukkan harga bangunan/meter:");
-            hargabangunan=scan.nextInt();
-            
-            bumi=luasbumi*hargabumi;
-            bangunan=luasbangunan*hargabangunan;
-            NJOP=bumi+bangunan;
-            nilaiaset=NJOP-tetapan2;
+        double luasTanah, luasBangunan, hargaTanahPerMeter, hargaBangunanPerMeter;
+        double NJOPBumi, NJOPBangunan, NJOP, NJKP, PBB;
+        double tetapan1 = 0.005;  // Tarif PBB (0.5%)
+        double tetapan2 = 0.4;    // Persentase NJKP (40%)
+        double tetapan3 = 0.2;    // Persentase NJKP jika NJOP < 1.000.000.000
+        double NJOPTKP = 12000000;  // Nilai NJOPTKP
 
-            if(nilaiaset < 1000000000){
-                NJKP=(int)(nilaiaset*tetapan1);
-                totPBB=(int)(NJKP*PBB);
-                System.out.println("Total pajak anda: " + totPBB);
-            }else{
-                NJKP=(int)(nilaiaset*tetapan3);
-                totPBB=(int)(NJKP*PBB);
-                System.out.println("Total pajak anda: " + totPBB);
-            }
+        System.out.print("Masukkan luas tanah (meter persegi): ");
+        luasTanah = in.nextDouble();
+        System.out.print("Masukkan luas bangunan (meter persegi): ");
+        luasBangunan = in.nextDouble();
+        System.out.print("Masukkan harga tanah per meter: ");
+        hargaTanahPerMeter = in.nextDouble();
+        System.out.print("Masukkan harga bangunan per meter: ");
+        hargaBangunanPerMeter = in.nextDouble();
+
+        NJOPBumi = luasTanah * hargaTanahPerMeter;
+        NJOPBangunan = luasBangunan * hargaBangunanPerMeter;
+        NJOP = NJOPBumi + NJOPBangunan;
+
+        if (NJOP > 1000000000) {
+            NJKP = tetapan2 * (NJOP - NJOPTKP);
+        } else {
+            NJKP = tetapan3 * (NJOP - NJOPTKP);
+        }
+
+        PBB = tetapan1 * NJKP;
+
+        long roundedNJOPBumi = Math.round(NJOPBumi);
+        long roundedNJOPBangunan = Math.round(NJOPBangunan);
+        long roundedNJOP = Math.round(NJOP);
+        long roundedNJKP = Math.round(NJKP);
+        long roundedPBB = Math.round(PBB);
+
+        System.out.println("NJOP Bumi: " + roundedNJOPBumi);
+        System.out.println("NJOP Bangunan: " + roundedNJOPBangunan);
+        System.out.println("Total NJOP: " + roundedNJOP);
+        System.out.println("NJKP: " + roundedNJKP);
+        System.out.println("PBB: " + roundedPBB);
+
         }else if(pajak==3){
             Scanner scan=new Scanner(System.in);
             String jenPKB;        
