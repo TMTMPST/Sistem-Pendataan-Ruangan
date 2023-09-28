@@ -32,9 +32,8 @@ Scanner input=new Scanner(System.in);
 
         if(pajak==1){
             Scanner sc= new Scanner(System.in);
-            int gaji, tanggungan=4500000,PTKP, pribadi=54000000, pkp;
-            double totpajak;
-            double PPh1=0.05,PPh2=0.15;
+            int gaji, tanggungan=4500000,PTKP, pribadi=54000000, pkp, totpajak;
+            double PPh1=0.05,PPh2=0.15,PPh3=0.25,PPh4=0.3;
             byte jmltanggungan;
             String status;
 
@@ -52,10 +51,16 @@ Scanner input=new Scanner(System.in);
                 pkp=gaji-PTKP;
                 
                 if(pkp<50000000){
-                    totpajak=pkp*PPh1;
+                    totpajak=(int)(pkp*PPh1);
                     System.out.println("Total pajak anda: " + totpajak);
-                }else{
-                    totpajak=pkp*PPh2;
+                }else if(pkp>=50_000_000&&pkp<250_000_000){
+                    totpajak=(int)(pkp*PPh2);
+                    System.out.println("Total pajak anda: " + totpajak);
+                }else if(pkp>=250_000_000&&pkp<500_000_000){
+                    totpajak=(int)(pkp*PPh3);
+                    System.out.println("Total pajak anda: " + totpajak);
+                }else if(pkp>=500_000_000){
+                    totpajak=(int)(pkp*PPh4);
                     System.out.println("Total pajak anda: " + totpajak);
                 }
             }else {
@@ -68,46 +73,106 @@ Scanner input=new Scanner(System.in);
                 PTKP=(jmltanggungan*tanggungan)+pribadi;
                 pkp=gaji-PTKP;
                 if(pkp<50000000){
-                    totpajak=pkp*PPh1;
+                    totpajak=(int)(pkp*PPh1);
                     System.out.println("Total pajak anda: " + totpajak);
-                }else{
-                    totpajak=pkp*PPh2;
+                }else if(pkp>=50_000_000&&pkp<250_000_000){
+                    totpajak=(int)(pkp*PPh2);
+                    System.out.println("Total pajak anda: " + totpajak);
+                }else if(pkp>=250_000_000&&pkp<500_000_000){
+                    totpajak=(int)(pkp*PPh3);
+                    System.out.println("Total pajak anda: " + totpajak);
+                }else if(pkp>=500_000_000){
+                    totpajak=(int)(pkp*PPh4);
                     System.out.println("Total pajak anda: " + totpajak);
                 }
             }
-    }else if(pajak==2){
+        }else if(pajak==2){
+            Scanner in = new Scanner(System.in);
+
+        double luasTanah, luasBangunan, hargaTanahPerMeter, hargaBangunanPerMeter;
+        double NJOPBumi, NJOPBangunan, NJOP, NJKP, PBB;
+        double tetapan1 = 0.005;  // Tarif PBB (0.5%)
+        double tetapan2 = 0.4;    // Persentase NJKP (40%)
+        double tetapan3 = 0.2;    // Persentase NJKP jika NJOP < 1.000.000.000
+        double NJOPTKP = 12000000;  // Nilai NJOPTKP
+
+        System.out.print("Masukkan luas tanah (meter persegi): ");
+        luasTanah = in.nextDouble();
+        System.out.print("Masukkan luas bangunan (meter persegi): ");
+        luasBangunan = in.nextDouble();
+        System.out.print("Masukkan harga tanah per meter: ");
+        hargaTanahPerMeter = in.nextDouble();
+        System.out.print("Masukkan harga bangunan per meter: ");
+        hargaBangunanPerMeter = in.nextDouble();
+
+        NJOPBumi = luasTanah * hargaTanahPerMeter;
+        NJOPBangunan = luasBangunan * hargaBangunanPerMeter;
+        NJOP = NJOPBumi + NJOPBangunan;
+
+        if (NJOP > 1000000000) {
+            NJKP = tetapan2 * (NJOP - NJOPTKP);
+        } else {
+            NJKP = tetapan3 * (NJOP - NJOPTKP);
+        }
+
+        PBB = tetapan1 * NJKP;
+
+        long roundedNJOPBumi = Math.round(NJOPBumi);
+        long roundedNJOPBangunan = Math.round(NJOPBangunan);
+        long roundedNJOP = Math.round(NJOP);
+        long roundedNJKP = Math.round(NJKP);
+        long roundedPBB = Math.round(PBB);
+
+        System.out.println("NJOP Bumi: " + roundedNJOPBumi);
+        System.out.println("NJOP Bangunan: " + roundedNJOPBangunan);
+        System.out.println("Total NJOP: " + roundedNJOP);
+        System.out.println("NJKP: " + roundedNJKP);
+        System.out.println("PBB: " + roundedPBB);
+
+        }else if(pajak==3){
             Scanner scan=new Scanner(System.in);
-            int bumi, bangunan;
-            int luasbangunan, luasbumi;
-            int hargabumi,hargabangunan;
-            double tetapan1=0.2, tetapan3=0.4, PBB=0.005;
-            double NJOP, NJKP, totPBB, nilaiaset, tetapan2=12000000;
+            String jenPKB;        
+            System.out.print("Masukkan jenis PKB: ");
+            jenPKB=scan.nextLine();
 
-            System.out.print("Masukkan luas bangunan anda  :");
-            luasbangunan=scan.nextInt();
-            System.out.print("Masukkan luas tanah anda     :");
-            luasbumi=scan.nextInt();
-            System.out.print("Masukkan harga tanah/meter   :");
-            hargabumi=scan.nextInt();
-            System.out.print("Masukkan harga bangunan/meter:");
-            hargabangunan=scan.nextInt();
-            
-            bumi=luasbumi*hargabumi;
-            bangunan=luasbangunan*hargabangunan;
-            NJOP=bumi+bangunan;
-            nilaiaset=NJOP-tetapan2;
+            if(jenPKB.equalsIgnoreCase("motor")){
+                int cc, PKB, koefBobot, operasi1;
+                int TNKB, administrasi=50000, terbitSTNK, totPajak1, totPajak2;
+                float progresif=0.5f, presentase;
+                byte urutKendaraan;
+                
+                System.out.print("Kendaraan ke-                     : ");
+                urutKendaraan=scan.nextByte();
+                System.out.print("Masukkan koefisien bobot kendaraan: ");
+                koefBobot=scan.nextInt();
+                System.out.print("Masukkan nilai PKB kendaraan      : ");
+                PKB=scan.nextInt();
+                System.out.print("Masukkan cc kendaraan             : ");
+                cc=scan.nextInt();
+                System.out.print("Masukkan biaya pengesahan STNK    : ");
+                TNKB=scan.nextInt();
+                System.out.print("Masukkan biaya penerbitan STNK    : ");
+                terbitSTNK=scan.nextInt();
 
-            if(nilaiaset < 1000000000){
-                NJKP=nilaiaset*tetapan1;
-                totPBB=NJKP*PBB;
-                System.out.println("Total pajak anda: " + totPBB);
+                if(cc<250){
+                    presentase=((urutKendaraan*progresif)+1)/100;
+                    operasi1=((PKB/2)*100)*koefBobot;
+                    totPajak1=(int)(operasi1*presentase);
+                    totPajak2= totPajak1+TNKB+terbitSTNK+35000+administrasi;
+                    System.out.println("Total pajak anda          : "+ totPajak1);
+                    System.out.println("Total pajak 5 tahunan anda: "+ totPajak2);
+
+                }else{
+                    presentase=(urutKendaraan*progresif)+1;
+                    operasi1=((PKB/2)*100)*koefBobot;
+                    totPajak1=(int)(operasi1*presentase);
+                    totPajak2= totPajak1+TNKB+terbitSTNK+83000+administrasi;
+                    System.out.println("Total pajak anda          : "+ totPajak1);
+                    System.out.println("Total pajak 5 tahunan anda: "+ totPajak2);
+                }
             }else{
-                NJKP=nilaiaset*tetapan3;
-                totPBB=NJKP*PBB;
-                System.out.println("Total pajak anda: " + totPBB);
+                    //mobil
             }
-    }else if(pajak==3){
-
     }
 }
 }
