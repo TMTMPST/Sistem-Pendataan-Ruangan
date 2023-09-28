@@ -75,6 +75,7 @@ Scanner input=new Scanner(System.in);
                 if(pkp<50000000){
                     totpajak=(int)(pkp*PPh1);
                     System.out.println("Total pajak anda: " + totpajak);
+
                 }else if(pkp>=50_000_000&&pkp<250_000_000){
                     totpajak=(int)(pkp*PPh2);
                     System.out.println("Total pajak anda: " + totpajak);
@@ -83,7 +84,6 @@ Scanner input=new Scanner(System.in);
                     System.out.println("Total pajak anda: " + totpajak);
                 }else if(pkp>=500_000_000){
                     totpajak=(int)(pkp*PPh4);
-                    System.out.println("Total pajak anda: " + totpajak);
                 }
             }
         }else if(pajak==2){
@@ -176,4 +176,3 @@ Scanner input=new Scanner(System.in);
     }
 }
 }
-
