@@ -171,21 +171,19 @@ Scanner input=new Scanner(System.in);
         }else if(pajak==2){
             Scanner in = new Scanner(System.in);
 
-        double luasTanah, luasBangunan, hargaTanahPerMeter, hargaBangunanPerMeter;
-        double NJOPBumi, NJOPBangunan, NJOP, NJKP, PBB;
-        double tetapan1 = 0.005;  // Tarif PBB (0.5%)
-        double tetapan2 = 0.4;    // Persentase NJKP (40%)
-        double tetapan3 = 0.2;    // Persentase NJKP jika NJOP < 1.000.000.000
-        double NJOPTKP = 12000000;  // Nilai NJOPTKP
+        long luasTanah, luasBangunan, hargaTanahPerMeter, hargaBangunanPerMeter;
+        long NJOPBumi, NJOPBangunan;
+        double denda = 0.2, tetapan1 = 0.005, tetapan2 = 0.4, tetapan3 = 0.2, NJOP, NJKP, PBB;      
+        long NJOPTKP = 12000000;
 
         System.out.print("Masukkan luas tanah (meter persegi): ");
-        luasTanah = in.nextDouble();
+        luasTanah = in.nextInt();
         System.out.print("Masukkan luas bangunan (meter persegi): ");
-        luasBangunan = in.nextDouble();
+        luasBangunan = in.nextInt();
         System.out.print("Masukkan harga tanah per meter: ");
-        hargaTanahPerMeter = in.nextDouble();
+        hargaTanahPerMeter = in.nextInt();
         System.out.print("Masukkan harga bangunan per meter: ");
-        hargaBangunanPerMeter = in.nextDouble();
+        hargaBangunanPerMeter = in.nextInt();
 
         NJOPBumi = luasTanah * hargaTanahPerMeter;
         NJOPBangunan = luasBangunan * hargaBangunanPerMeter;
@@ -199,17 +197,13 @@ Scanner input=new Scanner(System.in);
 
         PBB = tetapan1 * NJKP;
 
-        long roundedNJOPBumi = Math.round(NJOPBumi);
-        long roundedNJOPBangunan = Math.round(NJOPBangunan);
-        long roundedNJOP = Math.round(NJOP);
-        long roundedNJKP = Math.round(NJKP);
-        long roundedPBB = Math.round(PBB);
+        System.out.println("NJOP Bumi: " + NJOPBumi);
+        System.out.println("NJOP Bangunan: " + NJOPBangunan);
+        System.out.println("Total NJOP: " + (long) NJOP);
+        System.out.println("NJKP: " + (long) NJKP);
+        System.out.println("PBB: " + (long) PBB);
 
-        System.out.println("NJOP Bumi: " + roundedNJOPBumi);
-        System.out.println("NJOP Bangunan: " + roundedNJOPBangunan);
-        System.out.println("Total NJOP: " + roundedNJOP);
-        System.out.println("NJKP: " + roundedNJKP);
-        System.out.println("PBB: " + roundedPBB);
+        
 
         }else if(pajak==3){
             Scanner scan=new Scanner(System.in);
