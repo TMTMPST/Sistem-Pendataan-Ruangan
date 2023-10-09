@@ -173,23 +173,24 @@ Scanner input=new Scanner(System.in);
 
         long luasTanah, luasBangunan, hargaTanahPerMeter, hargaBangunanPerMeter;
         long NJOPBumi, NJOPBangunan;
-        double denda = 0.2, tetapan1 = 0.005, tetapan2 = 0.4, tetapan3 = 0.2, NJOP, NJKP, PBB;      
+        double denda = 0.2, tetapan1 = 0.005, tetapan2 = 0.4, tetapan3 = 0.2, NJOP, NJKP, PBB, totDenda, PBBSetDenda;      
         long NJOPTKP = 12000000;
+        int bulan;
 
-        System.out.print("Masukkan luas tanah (meter persegi): ");
+        System.out.print("Masukkan luas tanah (meter persegi)   : ");
         luasTanah = in.nextInt();
         System.out.print("Masukkan luas bangunan (meter persegi): ");
         luasBangunan = in.nextInt();
-        System.out.print("Masukkan harga tanah per meter: ");
+        System.out.print("Masukkan harga tanah per meter        : ");
         hargaTanahPerMeter = in.nextInt();
-        System.out.print("Masukkan harga bangunan per meter: ");
+        System.out.print("Masukkan harga bangunan per meter     : ");
         hargaBangunanPerMeter = in.nextInt();
 
         NJOPBumi = luasTanah * hargaTanahPerMeter;
         NJOPBangunan = luasBangunan * hargaBangunanPerMeter;
         NJOP = NJOPBumi + NJOPBangunan;
 
-        if (NJOP > 1000000000) {
+        if(NJOP > 1000000000) {
             NJKP = tetapan2 * (NJOP - NJOPTKP);
         } else {
             NJKP = tetapan3 * (NJOP - NJOPTKP);
@@ -197,13 +198,23 @@ Scanner input=new Scanner(System.in);
 
         PBB = tetapan1 * NJKP;
 
+        //System.out.print("Apakah anda telat membayar pajak: ");
+        //denda = in.nextDouble();
+        
+        System.out.print("Berapa bulan anda tidak membayar pajak: ");
+        bulan = in.nextInt();
+
+        totDenda = denda * bulan;
+        PBBSetDenda = PBB - totDenda;
+        
         System.out.println("NJOP Bumi: " + NJOPBumi);
         System.out.println("NJOP Bangunan: " + NJOPBangunan);
         System.out.println("Total NJOP: " + (long) NJOP);
         System.out.println("NJKP: " + (long) NJKP);
         System.out.println("PBB: " + (long) PBB);
+        System.out.println("Denda: " + (float) totDenda);
+        System.out.println("PBB Setelah Denda: " + (long) PBBSetDenda );
 
-        
 
         }else if(pajak==3){
             Scanner scan=new Scanner(System.in);
