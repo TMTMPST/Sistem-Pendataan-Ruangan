@@ -31,7 +31,6 @@ public class main {
         pajak=input.nextInt();
             
         if(pajak==1){
-            Scanner sc= new Scanner(System.in);
             int gaji, tanggungan=4500000,PTKP, pribadi=54000000, pkp, totpajak,totDenda, totBayar;
             double[] PPh={0.05,0.15,0.25,0.3}; 
             double denda=0.02,totPersenDenda;
@@ -39,22 +38,22 @@ public class main {
             String status;
 
             System.out.print("Apakah anda sudah menikah?: ");
-            status=sc.nextLine();
+            status=input.nextLine();
             
             if(status.equalsIgnoreCase("iya")){
                 System.out.println("masukkan gaji bersih selama 1 tahun:");
-                gaji=sc.nextInt();
+                gaji=input.nextInt();
                 System.out.println("masukkan jumlah tanggungan");
                 System.out.print("(anak + istri):");
-                jmltanggungan=sc.nextInt();
+                jmltanggungan=input.nextInt();
                 System.out.print("Masukkan bulan jatuh tempo: ");
-                bulanJatuhTempo=sc.nextInt();
+                bulanJatuhTempo=input.nextInt();
                 System.out.print("Masukkan tahun jatuh tempo: ");
-                tahunJatuhTempo=sc.nextInt();
+                tahunJatuhTempo=input.nextInt();
                 System.out.print("Masukkan bulan anda membayar: ");
-                bulanBayar=sc.nextInt();
+                bulanBayar=input.nextInt();
                 System.out.print("Masukkan tahun anda membayar: ");
-                tahunBayar=sc.nextInt();
+                tahunBayar=input.nextInt();
 
                 PTKP=(jmltanggungan*tanggungan)+pribadi;
                 pkp=gaji-PTKP;
@@ -108,15 +107,15 @@ public class main {
                 }
             }else {
                 System.out.println("masukkan gaji bersih selama 1 tahun:");
-                gaji=sc.nextInt();
+                gaji=input.nextInt();
                 System.out.print("Masukkan bulan jatuh tempo: ");
-                bulanJatuhTempo=sc.nextInt();
+                bulanJatuhTempo=input.nextInt();
                 System.out.print("Masukkan tahun jatuh tempo: ");
-                tahunJatuhTempo=sc.nextInt();
+                tahunJatuhTempo=input.nextInt();
                 System.out.print("Masukkan bulan anda membayar: ");
-                bulanBayar=sc.nextInt();
+                bulanBayar=input.nextInt();
                 System.out.print("Masukkan tahun anda membayar: ");
-                tahunBayar=sc.nextInt();
+                tahunBayar=input.nextInt();
                 PTKP=(0*tanggungan)+pribadi;
                 pkp=gaji-PTKP;
                 selisihBulan=((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
@@ -169,7 +168,6 @@ public class main {
                 }
             }
         }else if(pajak==2){
-            Scanner in = new Scanner(System.in);
 
         long luasTanah, luasBangunan, hargaTanahPerMeter, hargaBangunanPerMeter;
         long NJOPBumi, NJOPBangunan;
@@ -178,13 +176,13 @@ public class main {
         int bulan;
 
         System.out.print("Masukkan luas tanah (meter persegi)   : ");
-        luasTanah = in.nextInt();
+        luasTanah = input.nextInt();
         System.out.print("Masukkan luas bangunan (meter persegi): ");
-        luasBangunan = in.nextInt();
+        luasBangunan = input.nextInt();
         System.out.print("Masukkan harga tanah per meter        : ");
-        hargaTanahPerMeter = in.nextInt();
+        hargaTanahPerMeter = input.nextInt();
         System.out.print("Masukkan harga bangunan per meter     : ");
-        hargaBangunanPerMeter = in.nextInt();
+        hargaBangunanPerMeter = input.nextInt();
 
         NJOPBumi = luasTanah * hargaTanahPerMeter;
         NJOPBangunan = luasBangunan * hargaBangunanPerMeter;
@@ -202,7 +200,7 @@ public class main {
         //denda = in.nextDouble();
         
         System.out.print("Berapa bulan anda tidak membayar pajak: ");
-        bulan = in.nextInt();
+        bulan = input.nextInt();
 
         totDenda = denda * bulan;
         PBBSetDenda = PBB - totDenda;
@@ -217,10 +215,9 @@ public class main {
 
 
         }else if(pajak==3){
-            Scanner scan=new Scanner(System.in);
             String jenPKB;        
             System.out.print("Masukkan jenis PKB: ");
-            jenPKB=scan.nextLine();
+            jenPKB=input.nextLine();
 
             if(jenPKB.equalsIgnoreCase("motor")){
                 int cc, PKB, koefBobot, operasi1;
@@ -229,17 +226,17 @@ public class main {
                 byte urutKendaraan;
                 
                 System.out.print("Kendaraan ke-                     : ");
-                urutKendaraan=scan.nextByte();
+                urutKendaraan=input.nextByte();
                 System.out.print("Masukkan koefisien bobot kendaraan: ");
-                koefBobot=scan.nextInt();
+                koefBobot=input.nextInt();
                 System.out.print("Masukkan nilai PKB kendaraan      : ");
-                PKB=scan.nextInt();
+                PKB=input.nextInt();
                 System.out.print("Masukkan cc kendaraan             : ");
-                cc=scan.nextInt();
+                cc=input.nextInt();
                 System.out.print("Masukkan biaya pengesahan STNK    : ");
-                TNKB=scan.nextInt();
+                TNKB=input.nextInt();
                 System.out.print("Masukkan biaya penerbitan STNK    : ");
-                terbitSTNK=scan.nextInt();
+                terbitSTNK=input.nextInt();
 
                 if(cc<250){
                     presentase=((urutKendaraan*progresif)+1)/100;
