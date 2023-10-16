@@ -234,7 +234,7 @@ public class main {
 
             if(jenPKB.equalsIgnoreCase("motor")){
                 int cc, PKB, koefBobot, operasi1;
-                int TNKB, administrasi=50000, terbitSTNK, totPajak1, totPajak2;
+                int TNKB, administrasi=50000, terbitSTNK, totPajak1, totPajak2, bulanJatuhTempo, tahunJatuhTempo, bulanBayar, tahunBayar;
                 float progresif=0.5f, presentase;
                 byte urutKendaraan;
                 
@@ -250,6 +250,14 @@ public class main {
                 TNKB=input.nextInt();
                 System.out.print("Masukkan biaya penerbitan STNK    : ");
                 terbitSTNK=input.nextInt();
+                System.out.print("Masukkan bulan jatuh tempo        : ");
+                bulanJatuhTempo=input.nextInt();
+                System.out.print("Masukkan tahun jatuh tempo        : ");
+                tahunJatuhTempo=input.nextInt();
+                System.out.print("Masukkan bulan anda membayar      : ");
+                bulanBayar=input.nextInt();
+                System.out.print("Masukkan tahun anda membayar      : ");
+                tahunBayar=input.nextInt();
 
                 if(cc<250){
                     presentase=((urutKendaraan*progresif)+1)/100;
