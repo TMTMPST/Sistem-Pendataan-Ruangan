@@ -201,16 +201,24 @@ public class main {
 
         PBB = tetapan1 * NJKP;
 
-        //System.out.print("Apakah anda telat membayar pajak: ");
-        //denda = in.nextDouble();
+        do {
+            System.out.print("Apakah anda telat membayar pajak (y/n)? ");
+            telat = input.next();
+        } while (!telat.equalsIgnoreCase("y") && !telat.equalsIgnoreCase("n"));
 
-        System.out.print("Berapa bulan anda tidak membayar pajak: ");
-        bulan = input.nextInt();
+        if (telat.equalsIgnoreCase("y")) {
+            do {
+                System.out.print("Berapa bulan anda tidak membayar pajak: ");
+                bulan = input.nextInt();
+            } while (bulan <= 0);
+            hasil = denda * bulan;
+            totDenda = PBB * hasil;
+            PBBSetDenda = PBB + totDenda;
+        } else {
+            totDenda = 0;
+            PBBSetDenda = PBB;
+        }
 
-        hasil = denda * bulan;
-        totDenda = PBB * hasil;
-        PBBSetDenda = PBB + totDenda;
-        
         System.out.println("NJOP Bumi        : " + NJOPBumi);
         System.out.println("NJOP Bangunan    : " + NJOPBangunan);
         System.out.println("Total NJOP       : " + (long) NJOP);
