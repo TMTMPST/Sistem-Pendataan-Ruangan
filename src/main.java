@@ -222,47 +222,73 @@ public class main {
 
             }else if(pajak==3){
                 String jenPKB;        
-                System.out.print("Masukkan jenis PKB: ");
-                jenPKB=input.nextLine();
+                do {
+                    System.out.print("Masukkan jenis\t\t\t\t: ");
+                    jenPKB=input.next();
 
-                if(jenPKB.equalsIgnoreCase("motor")){
-                    int cc, PKB, koefBobot, operasi1;
-                    int TNKB, administrasi=50000, terbitSTNK, totPajak1, totPajak2;
-                    float progresif=0.5f, presentase;
-                    byte urutKendaraan;
-                    
-                    System.out.print("Kendaraan ke-                     : ");
-                    urutKendaraan=input.nextByte();
-                    System.out.print("Masukkan koefisien bobot kendaraan: ");
-                    koefBobot=input.nextInt();
-                    System.out.print("Masukkan nilai PKB kendaraan      : ");
-                    PKB=input.nextInt();
-                    System.out.print("Masukkan cc kendaraan             : ");
-                    cc=input.nextInt();
-                    System.out.print("Masukkan biaya pengesahan STNK    : ");
-                    TNKB=input.nextInt();
-                    System.out.print("Masukkan biaya penerbitan STNK    : ");
-                    terbitSTNK=input.nextInt();
+                    if(jenPKB.equalsIgnoreCase("motor")){
+                        int cc, PKB, koefBobot, operasi1;
+                        int TNKB, administrasi=50000, terbitSTNK, totPajak1, totPajak2, bulanJatuhTempo, tahunJatuhTempo, bulanBayar, tahunBayar;
+                        float progresif=0.5f, presentase;
+                        byte urutKendaraan;
+                        double denda;
+                        
+                        System.out.print("Kendaraan ke-                         : ");
+                        urutKendaraan=input.nextByte();
+                        System.out.print("Masukkan koefisien bobot kendaraan    : ");
+                        koefBobot=input.nextInt();
+                        System.out.print("Masukkan nilai PKB kendaraan          : ");
+                        PKB=input.nextInt();
+                        System.out.print("Masukkan cc kendaraan                 : ");
+                        cc=input.nextInt();
+                        System.out.print("Masukkan biaya pengesahan STNK        : ");
+                        TNKB=input.nextInt();
+                        System.out.print("Masukkan biaya penerbitan STNK        : ");
+                        terbitSTNK=input.nextInt();
+                        System.out.print("Masukkan bulan jatuh tempo            : ");
+                        bulanJatuhTempo=input.nextInt();
+                        System.out.print("Masukkan tahun jatuh tempo            : ");
+                        tahunJatuhTempo=input.nextInt();
+                        System.out.print("Masukkan bulan anda membayar      : ");
+                        bulanBayar=input.nextInt();
+                        System.out.print("Masukkan tahun anda membayar      : ");
+                        tahunBayar=input.nextInt();
+                        if(cc<250){
+                            presentase=((urutKendaraan*progresif)+1)/100;
+                            operasi1=((PKB/2)*100)*koefBobot;
+                            totPajak1=(int)(operasi1*presentase);
+                            totPajak2= totPajak1+TNKB+terbitSTNK+35000+administrasi;
+                            if (((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) <= 1) {
+                                denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
+                            } else {
+                                denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 35000;
+                            }
+                            System.out.println("Denda anda                   : "+ denda);
+                            System.out.println("Total pajak anda             : "+ totPajak1);
+                            System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
 
-                    if(cc<250){
-                        presentase=((urutKendaraan*progresif)+1)/100;
-                        operasi1=((PKB/2)*100)*koefBobot;
-                        totPajak1=(int)(operasi1*presentase);
-                        totPajak2= totPajak1+TNKB+terbitSTNK+35000+administrasi;
-                        System.out.println("Total pajak anda          : "+ totPajak1);
-                        System.out.println("Total pajak 5 tahunan anda: "+ totPajak2);
-
-                    }else{
-                        presentase=(urutKendaraan*progresif)+1;
-                        operasi1=((PKB/2)*100)*koefBobot;
-                        totPajak1=(int)(operasi1*presentase);
-                        totPajak2= totPajak1+TNKB+terbitSTNK+83000+administrasi;
-                        System.out.println("Total pajak anda          : "+ totPajak1);
-                        System.out.println("Total pajak 5 tahunan anda: "+ totPajak2);
+                        }else{
+                            presentase=(urutKendaraan*progresif)+1;
+                            operasi1=((PKB/2)*100)*koefBobot;
+                            totPajak1=(int)(operasi1*presentase);
+                            totPajak2= totPajak1+TNKB+terbitSTNK+83000+administrasi;
+                            if (((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) <= 1) {
+                                denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
+                            } else {
+                                denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 83000;
+                            }
+                            System.out.println("Denda Anda                 :");
+                            System.out.println("Total pajak anda             : "+ totPajak1);
+                            System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
+                        }
+                        break;
+                    }if (jenPKB.equalsIgnoreCase("mobil")){
+                            //mobil
+                    }else {
+                        System.out.println("Jenis Kendaraan tidak valid. Silahkan Masukkan kembali");
                     }
-                }else{
-                        //mobil
-                }
+                }while (true);
+                    
             }else{
                 System.out.println("Maaf input yang anda masukkan salah"); //perulangan pada input pajak
             }
