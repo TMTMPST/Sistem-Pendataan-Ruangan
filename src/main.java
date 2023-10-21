@@ -294,7 +294,7 @@ public class main {
                         
                         System.out.print("Kendaraan ke-                         : ");
                         urutKendaraan=input.nextByte();
-                        System.out.println("Masukkan jenis kendaraan listrik / bensin : ");
+                        System.out.print("Masukkan jenis kendaraan listrik / bensin : ");
                         bahanBakar = input.next();
                         System.out.print("Masukkan nilai PKB kendaraan          : ");
                         PKB=input.nextInt();
@@ -312,7 +312,7 @@ public class main {
                         tahunBayar=input.nextInt();
 
                         if (bahanBakar.equalsIgnoreCase("listrik")) {
-                            operasi1=((PKB/2)*100);
+                            operasi1= PKB * 10/100;
                             totPajak1=(int)(operasi1);
                             totPajak2= totPajak1+TNKB+terbitSTNK+83000+administrasi;
                             if (((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) <= 1) {
