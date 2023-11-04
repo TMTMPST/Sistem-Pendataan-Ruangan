@@ -11,9 +11,9 @@ public class main {
         System.out.println("  ____) |_| |_ ____) |  | |  | |____| |  | | | |    | |____| | \\ \\| |  / ____ \\ |__| / ____ \\| . \\  / ____ \\| |\\  |");
         System.out.println(" |_____/|_____|_____/   |_|  |______|_|  |_| |_|    |______|_|  \\_\\_| /_/    \\_\\____/_/    \\_\\_|\\_\\/_/    \\_\\_| \\_|");
         System.out.println("====================================================================================================================");
-        String lanjut=null;
-        do{                                 //perulangan untuk lanjut menghitung atau tidak
-            for(int pajak='0';pajak>=5;){ //perulangan pada input pajak
+        while (true){                   //perulangan untuk lanjut menghitung atau tidak
+            int pajak='0';                                 
+            for(;pajak>=5;){            //perulangan pada input pajak
             Scanner input=new Scanner(System.in);        
             System.out.println("_____________________________");
             System.out.println("_____________________________");
@@ -29,6 +29,7 @@ public class main {
             System.out.println("| 2     | PBB               |");
             System.out.println("| 3     | Pajak Kendaraan   |");
             System.out.println("| 4     | Pajak Bea Cukai   |");
+            System.out.println("| 0     | Exit              |");
             System.out.println("=============================");        
             System.out.print("Masukkan jenis pajak: ");
             pajak=input.nextInt();
@@ -390,10 +391,7 @@ public class main {
                                     System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
                                 }
                             }
-                        }
-
-
-                        
+                        }                        
                     }else {
                         System.out.println("Jenis Kendaraan tidak valid. Silahkan Masukkan kembali");
                     }
@@ -413,20 +411,19 @@ public class main {
                 
                 nilaiPabean=(int)((hargaBarang+asuransi+biayaKirim)*kurs);
                 BM=(int)(beaMasuk*nilaiPabean);
-                nilaiImpor=(int)((nilaiPabean+BM)*0.11);
+                nilaiImpor=(int)((nilaiPabean+BM)*ppn);
                 totalPungutan=BM+nilaiImpor;
 
                 System.out.println("Total pajak Bea Masuk anda adalah: "+BM);
                 System.out.println("Total yang harus dibayar         : "+totalPungutan);
-            }else{
+            }else if (pajak>4){
                 System.out.println("Maaf input yang anda masukkan salah"); //perulangan pada input pajak
             }
-            System.out.print("Apakah anda ingin lanjut?: ");    //perulangan untuk lanjut menghitung
-            lanjut=input.next();
-                if (lanjut.equalsIgnoreCase("tidak"))
-                    break;
         }
-    }
-    while(lanjut.equalsIgnoreCase("iya"));
+
+            if (pajak==0) {
+                break;
+            }
+        }
     }
 }
