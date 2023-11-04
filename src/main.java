@@ -2,7 +2,57 @@ import java.util.Scanner;
 public class main {
 
     public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
 
+        int[] akun = new int[10];
+        int username, password;
+        String pilih;
+
+        do {
+            System.out.print("LOGIN/Daftar akun?: ");
+            pilih=sc.nextLine();
+
+            if (pilih.equalsIgnoreCase("daftar")) {
+                System.out.print("Masukkan username(NIM)                  : ");
+                username=sc.nextInt();
+                System.out.print("Masukkan password(minimal 4 digit angka): ");
+                password=sc.nextInt();
+
+                for (int i=0;i<akun.length;i++){
+                    if (akun[i]==0) {
+                        akun[i]=(username+password);
+                        break;
+                    }
+                }
+                System.out.println("Selamat! Akun anda telah berhasil terdaftar");
+                sc.nextLine();
+        
+            }else {
+                while (true) {
+                    System.out.println("LOGIN!");
+                    System.out.print("Masukkan username: ");
+                    username=sc.nextInt();
+                    System.out.print("Masukkan password: ");
+                    password=sc.nextInt();
+                    sc.nextLine();
+
+                    int i = 0;
+                    for (; i < akun.length; i++) {
+                        if ((username+password)==akun[i]) {
+                            break;
+                        }
+                    }
+                    if (i<10) {
+                        break;
+                    }else {
+                        System.out.println("Mohon maaf username/password yang anda masukkan salah!");
+                        System.out.println();
+                        continue;
+                    }
+                }
+            }                                  
+        System.out.println("Anda berhasil login!");
+        System.out.println();
         System.out.println("====================================================================================================================");
         System.out.println("   _____ _____  _____ _______ ______ __  __   _____  ______ _____  _____            _         _  __          _   _ ");
         System.out.println("  / ____|_   _|/ ____|__   __|  ____|  \\/  | |  __ \\|  ____|  __ \\|  __ \\ /\\       | |  /\\   | |/ /    /\\   | \\ | |");
@@ -422,8 +472,11 @@ public class main {
         }
 
             if (pajak==0) {
+                System.out.println("Terima kasih! Semoga harimu senin terus!");
+                System.out.println();
                 break;
             }
         }
+    }while(pilih.equalsIgnoreCase("daftar")||pilih.equalsIgnoreCase("login"));
     }
 }
