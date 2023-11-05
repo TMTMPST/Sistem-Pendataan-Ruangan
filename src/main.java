@@ -6,25 +6,32 @@ public class main {
 
         int[] akun = new int[10];
         int username, password;
-        String pilih;
+        String[] nama = new String[10];
+        String pilih, pengguna;
 
         do {
             System.out.print("LOGIN/Daftar akun?: ");
             pilih=sc.nextLine();
 
             if (pilih.equalsIgnoreCase("daftar")) {
+                System.out.print("Masukkan nama pengguna: ");
+                pengguna=sc.nextLine();
                 System.out.print("Masukkan username(NIM)                  : ");
                 username=sc.nextInt();
                 System.out.print("Masukkan password(minimal 4 digit angka): ");
                 password=sc.nextInt();
 
-                for (int i=0;i<akun.length;i++){
+                int i=0;
+                for (;i<akun.length;i++){
                     if (akun[i]==0) {
                         akun[i]=(username+password);
+                        nama[i]=pengguna;
                         break;
                     }
                 }
                 System.out.println("Selamat! Akun anda telah berhasil terdaftar");
+                System.out.println("Anda berhasil login!");
+                System.out.println("Selamat datang "+nama[i]);
                 sc.nextLine();
         
             }else {
@@ -43,6 +50,8 @@ public class main {
                         }
                     }
                     if (i<10) {
+                        System.out.println("Anda berhasil login!");
+                        System.out.println("Selamat datang "+nama[i]);
                         break;
                     }else {
                         System.out.println("Mohon maaf username/password yang anda masukkan salah!");
@@ -51,7 +60,6 @@ public class main {
                     }
                 }
             }                                  
-        System.out.println("Anda berhasil login!");
         System.out.println();
         System.out.println("====================================================================================================================");
         System.out.println("   _____ _____  _____ _______ ______ __  __   _____  ______ _____  _____            _         _  __          _   _ ");
