@@ -30,11 +30,12 @@ public class main {
                     }
                 }
                 System.out.println("Selamat! Akun anda telah berhasil terdaftar");
+                System.out.println();
                 System.out.println("Anda berhasil login!");
                 System.out.println("Selamat datang "+nama[i]);
                 sc.nextLine();
         
-            }else {
+            }else if (pilih.equalsIgnoreCase("login")) {
                 while (true) {
                     System.out.println("LOGIN!");
                     System.out.print("Masukkan username: ");
@@ -51,6 +52,7 @@ public class main {
                     }
                     if (i<10) {
                         System.out.println("Anda berhasil login!");
+                        System.out.println();
                         System.out.println("Selamat datang "+nama[i]);
                         break;
                     }else {
@@ -59,7 +61,15 @@ public class main {
                         continue;
                     }
                 }
-            }                                  
+            }else if (pilih.equalsIgnoreCase("off")) {
+                System.out.println();
+                System.out.println("****SELAMAT JALAN****");
+                System.out.println();
+                break;
+            }else {
+                System.out.println("INPUT ERROR!!");
+                continue; 
+            }                                 
         System.out.println();
         System.out.println("====================================================================================================================");
         System.out.println("   _____ _____  _____ _______ ______ __  __   _____  ______ _____  _____            _         _  __          _   _ ");
@@ -237,10 +247,9 @@ public class main {
 
             long luasTanah, luasBangunan, hargaTanahPerMeter, hargaBangunanPerMeter;
             long NJOPBumi, NJOPBangunan;
-            double denda = 0.02, tetapan1 = 0.005, tetapan2 = 0.4, tetapan3 = 0.2, NJOP, NJKP, PBB, hasil, totDenda, PBBSetDenda;      
+            double denda = 0.2, tetapan1 = 0.005, tetapan2 = 0.4, tetapan3 = 0.2, NJOP, NJKP, PBB, totDenda, PBBSetDenda;      
             long NJOPTKP = 12000000;
             int bulan;
-            String telat;
 
             System.out.print("Masukkan luas tanah (meter persegi)   : ");
             luasTanah = input.nextInt();
@@ -263,30 +272,21 @@ public class main {
 
             PBB = tetapan1 * NJKP;
 
-            do {
-                System.out.print("Apakah anda telat membayar pajak (y/n)? ");
-                telat = input.next();
-            } while (!telat.equalsIgnoreCase("y") && !telat.equalsIgnoreCase("n"));
-
-            if (telat.equalsIgnoreCase("y")) {
-                do {
-                    System.out.print("Berapa bulan anda tidak membayar pajak: ");
-                    bulan = input.nextInt();
-                } while (bulan <= 0);
-                hasil = denda * bulan;
-                totDenda = PBB * hasil;
-                PBBSetDenda = PBB + totDenda;
-            } else {
-                totDenda = 0;
-                PBBSetDenda = PBB;
-            }
+            //System.out.print("Apakah anda telat membayar pajak: ");
+            //denda = in.nextDouble();
             
-            System.out.println("NJOP Bumi        : " + NJOPBumi);
-            System.out.println("NJOP Bangunan    : " + NJOPBangunan);
-            System.out.println("Total NJOP       : " + (long) NJOP);
-            System.out.println("NJKP             : " + (long) NJKP);
-            System.out.println("PBB              : " + (long) PBB);
-            System.out.println("Denda            : " + (long) totDenda);
+            System.out.print("Berapa bulan anda tidak membayar pajak: ");
+            bulan = input.nextInt();
+
+            totDenda = denda * bulan;
+            PBBSetDenda = PBB - totDenda;
+            
+            System.out.println("NJOP Bumi: " + NJOPBumi);
+            System.out.println("NJOP Bangunan: " + NJOPBangunan);
+            System.out.println("Total NJOP: " + (long) NJOP);
+            System.out.println("NJKP: " + (long) NJKP);
+            System.out.println("PBB: " + (long) PBB);
+            System.out.println("Denda: " + (float) totDenda);
             System.out.println("PBB Setelah Denda: " + (long) PBBSetDenda );
 
 
@@ -495,6 +495,6 @@ public class main {
                 break;
             }
         }
-    }while(pilih.equalsIgnoreCase("daftar")||pilih.equalsIgnoreCase("login"));
+    }while(true);
     }
 }
