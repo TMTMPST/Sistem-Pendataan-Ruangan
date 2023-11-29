@@ -87,6 +87,23 @@ public class main {
         System.out.println("  ____) |_| |_ ____) |  | |  | |____| |  | | | |    | |____| | \\ \\| |  / ____ \\ |__| / ____ \\| . \\  / ____ \\| |\\  |");
         System.out.println(" |_____/|_____|_____/   |_|  |______|_|  |_| |_|    |______|_|  \\_\\_| /_/    \\_\\____/_/    \\_\\_|\\_\\/_/    \\_\\_| \\_|");
         System.out.println("====================================================================================================================");
+        
+        System.out.println("==================================");
+        System.out.println("|INPUT  | PILIH MENU             |");
+        System.out.println("|1      | INFORMASI              |");
+        System.out.println("|2      | Calculator             |");
+        System.out.println("==================================");
+
+        System.out.println("Masukkan Pilihan Menu : ");
+        int menu = sc.nextInt();
+
+        if (menu == 1) {
+        
+        
+        
+        } if (menu == 2) {
+        
+        
         while (true){                   //perulangan untuk lanjut menghitung atau tidak
             int pajak='0';                                 
             for(;pajak>=5;){            //perulangan pada input pajak
@@ -511,6 +528,7 @@ public class main {
                 break;
             }
         }
+    }
 
         }while(true);
     }
