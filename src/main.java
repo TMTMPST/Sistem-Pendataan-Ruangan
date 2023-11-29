@@ -4,8 +4,8 @@ public class main {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
 
-        int[] akun = new int[10];
-        int username, password;
+        long[] akun = new long[10];
+        long username, password;
         String[] nama = new String[10];
         String pilih, pengguna;
 
@@ -17,9 +17,9 @@ public class main {
                 System.out.print("Masukkan nama pengguna: ");
                 pengguna=sc.nextLine();
                 System.out.print("Masukkan username(NIM)                  : ");
-                username=sc.nextInt();
+                username=sc.nextLong();
                 System.out.print("Masukkan password(minimal 4 digit angka): ");
-                password=sc.nextInt();
+                password=sc.nextLong();
 
                 int i=0;
                 for (;i<akun.length;i++){
@@ -39,9 +39,9 @@ public class main {
                 while (true) {
                     System.out.println("LOGIN!");
                     System.out.print("Masukkan username: ");
-                    username=sc.nextInt();
+                    username=sc.nextLong();
                     System.out.print("Masukkan password: ");
-                    password=sc.nextInt();
+                    password=sc.nextLong();
                     sc.nextLine();
 
                     int i = 0;
