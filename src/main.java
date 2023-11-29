@@ -10,16 +10,22 @@ public class main {
         String pilih, pengguna;
 
         do {
-            System.out.print("LOGIN/Daftar akun?: ");
+            System.out.println("=============== SELAMAT DATANG DI SISTEM PERPAJAKAN ===============");
+            System.out.println("Silahkan mengetik Login / Daftar");
+            System.out.println("Ketik OFF untuk mematikan program\n\n");
+            System.out.print("LOGIN / DAFTAR / OFF: ");
             pilih=sc.nextLine();
 
             if (pilih.equalsIgnoreCase("daftar")) {
-                System.out.print("Masukkan nama pengguna: ");
+                System.out.println("\n\n=======================----PENDAFTARAN----=======================");
+                System.out.print("Masukkan nama pengguna                  : ");
                 pengguna=sc.nextLine();
                 System.out.print("Masukkan username(NIM)                  : ");
                 username=sc.nextLong();
                 System.out.print("Masukkan password(minimal 4 digit angka): ");
                 password=sc.nextLong();
+                System.out.println("\n\n=======================------------------=======================");
+
 
                 int i=0;
                 for (;i<akun.length;i++){
@@ -37,12 +43,14 @@ public class main {
         
             }else if (pilih.equalsIgnoreCase("login")) {
                 while (true) {
+                    System.out.println("\n\n=======================-------LOGIN-------=======================");
                     System.out.println("LOGIN!");
                     System.out.print("Masukkan username: ");
                     username=sc.nextLong();
                     System.out.print("Masukkan password: ");
                     password=sc.nextLong();
                     sc.nextLine();
+                    System.out.println("\n\n=======================------------------=======================");
 
                     int i = 0;
                     for (; i < akun.length; i++) {
@@ -63,7 +71,7 @@ public class main {
                 }
             }else if (pilih.equalsIgnoreCase("off")) {
                 System.out.println();
-                System.out.println("****SELAMAT JALAN****");
+                System.out.println("==========================TERIMA KASIH==========================");
                 System.out.println();
                 break;
             }else {
