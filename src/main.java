@@ -88,44 +88,62 @@ public class main {
         System.out.println(" |_____/|_____|_____/   |_|  |______|_|  |_| |_|    |______|_|  \\_\\_| /_/    \\_\\____/_/    \\_\\_|\\_\\/_/    \\_\\_| \\_|");
         System.out.println("====================================================================================================================");
         
-        System.out.println("==================================");
-        System.out.println("|INPUT  | PILIH MENU             |");
-        System.out.println("|1      | INFORMASI              |");
-        System.out.println("|2      | Calculator             |");
-        System.out.println("==================================");
+        while (true) {
+            System.out.println("==================================");
+            System.out.println("|INPUT  | PILIH MENU             |");
+            System.out.println("|1      | INFORMASI              |");
+            System.out.println("|2      | Calculator             |");
+            System.out.println("|0      | EXIT                   |");
+            System.out.println("==================================");
 
-        System.out.println("Masukkan Pilihan Menu : ");
-        int menu = sc.nextInt();
+            System.out.println("Masukkan Pilihan Menu : ");
+            int menu = sc.nextInt();
 
-        if (menu == 1) {
-            int pajak='0';
-            System.out.println("=============================");
-            System.out.println("|Input  |Jenis Pajak        |");
-            System.out.println("| 1     | PPh               |");
-            System.out.println("| 2     | PBB               |");
-            System.out.println("| 3     | Pajak Kendaraan   |");
-            System.out.println("| 4     | Pajak Bea Cukai   |");
-            System.out.println("| 0     | Exit              |");
-            System.out.println("=============================");        
-            System.out.print("Masukkan jenis pajak: ");
-            pajak=sc.nextInt();
+            if (menu == 1) {
+                int pajak='0';
+                System.out.println();
+                System.out.println("__________________________________");
+                System.out.println("__________________________________");
+                System.out.println(" Selamat Datang di Pusat Informasi");
+                System.out.println("               Pajak              ");
+                System.out.println("      D-IV Teknik Informatika     ");
+                System.out.println("               2023               ");
+                System.out.println("__________________________________");
+                System.out.println("=============================");
+                System.out.println("|Input  |Jenis Pajak        |");
+                System.out.println("| 1     | PPh               |");
+                System.out.println("| 2     | PBB               |");
+                System.out.println("| 3     | Pajak Kendaraan   |");
+                System.out.println("| 4     | Pajak Bea Cukai   |");
+                System.out.println("| 0     | Exit              |");
+                System.out.println("=============================");        
+                System.out.print("Masukkan jenis pajak: ");
+                pajak=sc.nextInt();
             
-            if (pajak==1) {
-                String InfoPajak = null;
-                System.out.println("PPh merupakan pajak penghasilan yang wajib dibayarkan oleh para pekerja setiap tahunnya.");
-                System.out.println("Pajak PPh ini sendiri tergantung pada jumlah PKP dan PTKP dari setiap perkerja.");
-                System.out.println("nilai presentase pajak yang dikenakan pada setiap orang berbeda tergantung dari besarnya penghasilan.");
-                System.out.println("Menu informasi:");
-                System.out.println("a. PTKP");
-                System.out.println("b. Tanggungan");
-                System.out.println("c. Presentase");
-                System.out.println("Informasi apa yang ingin anda cari?");
-                InfoPajak = sc.next();
+                if (pajak==1) {
+                    String InfoPajak = null;
+                    System.out.println("PPh merupakan pajak penghasilan yang wajib dibayarkan oleh para pekerja setiap tahunnya.");
+                    System.out.println("Pajak PPh ini sendiri tergantung pada jumlah PKP dan PTKP dari setiap perkerja.");
+                    System.out.println("nilai presentase pajak yang dikenakan pada setiap orang berbeda tergantung dari besarnya penghasilan.");
+                    System.out.println("Menu informasi:");
+                    System.out.println("a. PTKP");
+                    System.out.println("b. Tanggungan");
+                    System.out.println("c. Presentase");
+                    System.out.println("Informasi apa yang ingin anda cari?");
+                    InfoPajak = sc.next();
 
-                InfoPPh(InfoPajak);
+                    InfoPPh(InfoPajak);
+                }else if (pajak==0) {
+                    System.out.println();
+                    System.out.println("==========================TERIMA KASIH==========================");
+                    System.out.println();
+                    continue;
+                }
+            }else if (menu==0) {
+                break;
             }
-        
-        } if (menu == 2) {
+           
+            if (menu == 2) {
             while (true){                   //perulangan untuk lanjut menghitung atau tidak
                 int pajak='0';                                 
                 for(;pajak>=5;){            //perulangan pada input pajak
@@ -551,9 +569,10 @@ public class main {
                 }
             }
         }
-
-        }while(true);
     }
+
+    }while(true);
+}
 
     static void InfoPPh (String jenisInfo) {
         if (jenisInfo.equalsIgnoreCase("ptkp")) {
@@ -581,6 +600,24 @@ public class main {
             System.out.println("|                           |K/I/2 (2 tanggungan)      |Rp. 121.500.000,00       |");
             System.out.println("|T                          |K/I/3 (3 tanggungan)      |Rp. 126.000.000,00       |");
             System.out.println("==================================================================================");
+        }else if (jenisInfo.equalsIgnoreCase("tanggungan")) {
+            System.out.println();
+            System.out.println("Menjadi tanggungan sepenuhnya menurut UU PPh berdasarkan keadaan yang dapat nyata terlihat yakni:");
+            System.out.println("    a. Tinggal bersama-sama dengan Wajib Pajak");
+            System.out.println("    b. Tidak mempunyai penghasilan sendiri");
+            System.out.println("    c. Ditanggung oleh orang tuanya sendiri");
+            System.out.println("Maksimal tanggungan dalam PTKP adalah 3 anak, meskipun memiliki lebih dari 3 anak.");
+        }else if (jenisInfo.equalsIgnoreCase("presentase")) {
+            System.out.println();
+            System.out.println("Berikut tarif progresif PPh pasal 21 atau penghasilan kena pajak penghasilan:");
+            System.out.println("============================================================");
+            System.out.println("|Lapisan Tarif  |Penghasilan Kena Pajak       |PPh 21      |");
+            System.out.println("|I              |Rp. 0 - 60 juta              |5%          |");
+            System.out.println("|II             |Rp. 0 - 60 juta              |15%         |");
+            System.out.println("|III            |Rp. 0 - 60 juta              |25%         |");
+            System.out.println("|IV             |Rp. 0 - 60 juta              |30%         |");
+            System.out.println("|V              |Rp. 0 - 60 juta              |35%         |");
+            System.out.println("============================================================");
         }
     }
 }
