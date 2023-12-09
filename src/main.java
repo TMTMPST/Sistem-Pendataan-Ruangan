@@ -133,6 +133,17 @@ public class main {
                     InfoPajak = sc.next();
 
                     InfoPPh(InfoPajak);
+
+                } else if (pajak == 3){
+                    System.out.println("Pajak kendaraan bermotor (PKB) adalah pajak yang dikenakan atas kepemilikan dan/atau penguasaan kendaraan bermotor,\n" + 
+                                        "termasuk kendaraan beroda beserta gandengannya yang digunakan di jalan darat dan kendaraan bermotor yang dioperasikan di air .");
+                    System.out.println("Menu Informasi :");
+                    System.out.println("a. Hukum\n" );
+
+                    System.out.println("Informasi apa yang ingin anda cari?");
+                    String jensPKBString = sc.next();
+                    infoPKB(jensPKBString);
+                
                 }else if (pajak==0) {
                     System.out.println();
                     System.out.println("==========================TERIMA KASIH==========================");
@@ -142,7 +153,7 @@ public class main {
             }else if (menu==0) {
                 break;
             }
-           
+        
             if (menu == 2) {
             while (true){                   //perulangan untuk lanjut menghitung atau tidak
                 int pajak='0';                                 
@@ -589,6 +600,30 @@ public class main {
         }
         return pajak;
     }
-}
 
-            
+
+    static void infoPKB (String jensPKB){
+        Scanner sc=new Scanner(System.in);
+        if (jensPKB.equalsIgnoreCase("hukum")) {
+            System.out.println("Hukum Hukum Yang mengatur PKB (Pajak Kendaraan Bermotor)");
+            System.out.println("- Undang-Undang Nomor 28 Tahun 2009 tentang Pajak Daerah dan Retribusi Daerah\r\n" + //
+                    "- Peraturan Pemerintah Nomor 65 Tahun 2015 tentang Pajak Kendaraan Bermotor\r\n" + //
+                    "- Peraturan Menteri Dalam Negeri Nomor 1 Tahun 2021 tentang Penghitungan Dasar Pengenaan Pajak Kendaraan Bermotor dan Bea Balik Nama Kendaraan Bermotor Tahun 2021");
+            System.out.println("Apakah Ingin info selengkapnya");
+            System.out.print("(y/n) :");
+            String info = sc.next();
+
+            if (info.equalsIgnoreCase("y")) {
+                System.out.println("\nUndang-Undang Nomor 28 Tahun 2009 merupakan peraturan perundang-undangan yang mengatur secara umum tentang pajak daerah dan retribusi daerah. Dalam undang-undang ini, pajak kendaraan bermotor didefinisikan sebagai pajak atas kepemilikan dan/atau penguasaan kendaraan bermotor yang dioperasionalkan di wilayah Negara Kesatuan Republik Indonesia.\r\n" + //
+                        "\r\n" + //
+                        "Peraturan Pemerintah Nomor 65 Tahun 2015 merupakan peraturan pelaksana dari Undang-Undang Nomor 28 Tahun 2009. Peraturan pemerintah ini mengatur secara lebih rinci tentang pajak kendaraan bermotor, termasuk dasar pengenaan, tarif, dan tata cara pemungutan.\r\n" + //
+                        "\r\n" + //
+                        "Peraturan Menteri Dalam Negeri Nomor 1 Tahun 2021 merupakan peraturan yang mengatur tentang penghitungan dasar pengenaan pajak kendaraan bermotor dan bea balik nama kendaraan bermotor tahun 2021. Peraturan menteri ini mengatur tentang cara menghitung dasar pengenaan pajak kendaraan bermotor, termasuk untuk kendaraan bermotor yang baru diproduksi, kendaraan bermotor bekas, dan kendaraan bermotor yang mengalami perubahan.\r\n" + //
+                        "\r\n" + //
+                        "Selain ketiga peraturan perundang-undangan tersebut, pajak kendaraan bermotor juga diatur dalam peraturan daerah provinsi dan kabupaten/kota. Peraturan daerah ini mengatur tentang hal-hal yang belum diatur dalam peraturan perundang-undangan yang lebih tinggi, seperti tarif pajak kendaraan bermotor, tata cara pembayaran pajak kendaraan bermotor, dan sanksi atas pelanggaran pajak kendaraan bermotor.");
+            } if (info.equalsIgnoreCase("n")) {
+                System.out.println("");
+            }
+        }
+    }
+}
