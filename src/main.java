@@ -168,8 +168,7 @@ public class main {
                     pajak=input.nextInt();
                         
                     if(pajak==1){
-                        int gaji, tanggungan=4500000,PTKP, pribadi=54000000, pkp, totpajak,totDenda, totBayar;
-                        double[] PPh={0.05,0.15,0.25,0.3}; 
+                        int gaji, tanggungan=4500000,PTKP, pribadi=54000000, pkp, totpajak; 
                         double denda=0.02,totPersenDenda;
                         int jmltanggungan,bulanJatuhTempo,tahunJatuhTempo,tahunBayar,bulanBayar,selisihBulan;
                         String status;
@@ -201,110 +200,44 @@ public class main {
                                 System.out.println("Penghasilan anda tidak dikenakan pajak");
                             }else if(pkp>1){
                                 if (selisihBulan>0){
-                                    if(pkp<50000000){
-                                        totpajak=(int)(pkp*PPh[0]);
-                                        totDenda=(int)(totpajak*totPersenDenda);
-                                        totBayar=totpajak+totDenda;
-                                        System.out.println("Total pajak anda: " + totpajak);
-                                        System.out.println("Total denda anda: "+totDenda);
-                                        System.out.println("Total yang harus dibayar: "+totBayar);
-                                    }else if(pkp>=50_000_000&&pkp<250_000_000){
-                                        totpajak=(int)(pkp*PPh[1]);
-                                        totDenda=(int)(totpajak*totPersenDenda);
-                                        totBayar=totpajak+totDenda;
-                                        System.out.println("Total pajak anda: " + totpajak);
-                                        System.out.println("Total denda anda: "+totDenda);
-                                        System.out.println("Total yang harus dibayar: "+totBayar);
-                                    }else if(pkp>=250_000_000&&pkp<500_000_000){
-                                        totpajak=(int)(pkp*PPh[2]);
-                                        totDenda=(int)(totpajak*totPersenDenda);
-                                        totBayar=totpajak+totDenda;
-                                        System.out.println("Total pajak anda: " + totpajak);
-                                        System.out.println("Total denda anda: "+totDenda);
-                                        System.out.println("Total yang harus dibayar: "+totBayar);
-                                    }else if(pkp>=500_000_000){
-                                        totpajak=(int)(pkp*PPh[3]);
-                                        totDenda=(int)(totpajak*totPersenDenda);
-                                        totBayar=totpajak+totDenda;
-                                        System.out.println("Total pajak anda: " + totpajak);
-                                        System.out.println("Total denda anda: "+totDenda);
-                                        System.out.println("Total yang harus dibayar: "+totBayar);
-                                    }
+                                    int hasilPajak[] = new int[3];
+                                    hasilPajak = pajakDenganDenda(pkp, totPersenDenda);
+                                    System.out.println("Total pajak anda: " + hasilPajak[0]);
+                                    System.out.println("Total denda anda: "+hasilPajak[1]);
+                                    System.out.println("Total yang harus dibayar: "+hasilPajak[2]);
                                 }else{
-                                    if(pkp<50000000){
-                                        totpajak=(int)(pkp*PPh[0]);
-                                        System.out.println("Total pajak anda: " + totpajak);
-                                    }else if(pkp>=50_000_000&&pkp<250_000_000){
-                                        totpajak=(int)(pkp*PPh[1]);
-                                        System.out.println("Total pajak anda: " + totpajak);
-                                    }else if(pkp>=250_000_000&&pkp<500_000_000){
-                                        totpajak=(int)(pkp*PPh[2]);
-                                        System.out.println("Total pajak anda: " + totpajak);
-                                    }else if(pkp>=500_000_000){
-                                        totpajak=(int)(pkp*PPh[3]);
-                                        System.out.println("Total pajak anda: " + totpajak);;
-                                    }
+                                    totpajak=pajakTanpaDenda(pkp);
+                                    System.out.println("Total pajak anda: " + totpajak);
                                 }
-                            }else {
-                                System.out.println("masukkan gaji bersih selama 1 tahun:");
-                                gaji=input.nextInt();
-                                System.out.print("Masukkan bulan jatuh tempo: ");
-                                bulanJatuhTempo=input.nextInt();
-                                System.out.print("Masukkan tahun jatuh tempo: ");
-                                tahunJatuhTempo=input.nextInt();
-                                System.out.print("Masukkan bulan anda membayar: ");
-                                bulanBayar=input.nextInt();
-                                System.out.print("Masukkan tahun anda membayar: ");
-                                tahunBayar=input.nextInt();
-                                PTKP=(0*tanggungan)+pribadi;
-                                pkp=gaji-PTKP;
-                                selisihBulan=((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
-                                totPersenDenda=selisihBulan*denda;
-                                
+                            }
+                        }else {
+                            System.out.println("masukkan gaji bersih selama 1 tahun:");
+                            gaji=input.nextInt();
+                            System.out.print("Masukkan bulan jatuh tempo: ");
+                            bulanJatuhTempo=input.nextInt();
+                            System.out.print("Masukkan tahun jatuh tempo: ");
+                            tahunJatuhTempo=input.nextInt();
+                            System.out.print("Masukkan bulan anda membayar: ");
+                            bulanBayar=input.nextInt();
+                            System.out.print("Masukkan tahun anda membayar: ");
+                            tahunBayar=input.nextInt();
+                            PTKP=(0*tanggungan)+pribadi;
+                            pkp=gaji-PTKP;
+                            selisihBulan=((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
+                            totPersenDenda=selisihBulan*denda;
+
+                            if(pkp<1){
+                                System.out.println("Penghasilan anda tidak dikenakan pajak");
+                            }else if(pkp>1){
                                 if (selisihBulan>0){
-                                    if(pkp<50000000){
-                                        totpajak=(int)(pkp*PPh[0]);
-                                        totDenda=(int)(totpajak*totPersenDenda);
-                                        totBayar=totpajak+totDenda;
-                                        System.out.println("Total pajak anda: " + totpajak);
-                                        System.out.println("Total denda anda: "+totDenda);
-                                        System.out.println("Total yang harus dibayar: "+totBayar);
-                                    }else if(pkp>=50_000_000&&pkp<250_000_000){
-                                        totpajak=(int)(pkp*PPh[1]);
-                                        totDenda=(int)(totpajak*totPersenDenda);
-                                        totBayar=totpajak+totDenda;
-                                        System.out.println("Total pajak anda: " + totpajak);
-                                        System.out.println("Total denda anda: "+totDenda);
-                                        System.out.println("Total yang harus dibayar: "+totBayar);
-                                    }else if(pkp>=250_000_000&&pkp<500_000_000){
-                                        totpajak=(int)(pkp*PPh[2]);
-                                        totDenda=(int)(totpajak*totPersenDenda);
-                                        totBayar=totpajak+totDenda;
-                                        System.out.println("Total pajak anda: " + totpajak);
-                                        System.out.println("Total denda anda: "+totDenda);
-                                        System.out.println("Total yang harus dibayar: "+totBayar);
-                                    }else if(pkp>=500_000_000){
-                                        totpajak=(int)(pkp*PPh[3]);
-                                        totDenda=(int)(totpajak*totPersenDenda);
-                                        totBayar=totpajak+totDenda;
-                                        System.out.println("Total pajak anda: " + totpajak);
-                                        System.out.println("Total denda anda: "+totDenda);
-                                        System.out.println("Total yang harus dibayar: "+totBayar);
-                                    }
+                                    int hasilPajak[] = new int[3];
+                                    hasilPajak = pajakDenganDenda(pkp, totPersenDenda);
+                                    System.out.println("Total pajak anda: " + hasilPajak[0]);
+                                    System.out.println("Total denda anda: "+hasilPajak[1]);
+                                    System.out.println("Total yang harus dibayar: "+hasilPajak[2]);
                                 }else{
-                                    if(pkp<50000000){
-                                        totpajak=(int)(pkp*PPh[0]);
-                                        System.out.println("Total pajak anda: " + totpajak);
-                                    }else if(pkp>=50_000_000&&pkp<250_000_000){
-                                        totpajak=(int)(pkp*PPh[1]);
-                                        System.out.println("Total pajak anda: " + totpajak);
-                                    }else if(pkp>=250_000_000&&pkp<500_000_000){
-                                        totpajak=(int)(pkp*PPh[2]);
-                                        System.out.println("Total pajak anda: " + totpajak);
-                                    }else if(pkp>=500_000_000){
-                                        totpajak=(int)(pkp*PPh[3]);
-                                        System.out.println("Total pajak anda: " + totpajak);;
-                                    }
+                                    totpajak=pajakTanpaDenda(pkp);
+                                    System.out.println("Total pajak anda: " + totpajak);
                                 }
                             }
                         }
@@ -619,6 +552,42 @@ public class main {
             System.out.println("|V              |Rp. 0 - 60 juta              |35%         |");
             System.out.println("============================================================");
         }
+    }
+
+    static int[] pajakDenganDenda (int pkp, double totPersenDenda) {
+        int[] pajak = new int[3];
+        if(pkp<50000000){
+            pajak[0]=(int)(pkp*0.05);
+            pajak[1]=(int)(pajak[0]*totPersenDenda);
+            pajak[2]=pajak[0]+pajak[1];
+        }else if(pkp>=50_000_000&&pkp<250_000_000){
+            pajak[0]=(int)(pkp*0.15);
+            pajak[1]=(int)(pajak[0]*totPersenDenda);
+            pajak[2]=pajak[0]+pajak[1];
+        }else if(pkp>=250_000_000&&pkp<500_000_000){
+            pajak[0]=(int)(pkp*0.25);
+            pajak[1]=(int)(pajak[0]*totPersenDenda);
+            pajak[2]=pajak[0]+pajak[1];
+        }else if(pkp>=500_000_000){
+            pajak[0]=(int)(pkp*0.3);
+            pajak[1]=(int)(pajak[0]*totPersenDenda);
+            pajak[2]=pajak[0]+pajak[1];
+        }
+        return pajak;
+    }
+
+    static int pajakTanpaDenda (int pkp) {
+        int pajak=0;
+        if(pkp<50000000){
+            pajak=(int)(pkp*0.05);
+        }else if(pkp>=50_000_000&&pkp<250_000_000){
+            pajak=(int)(pkp*0.15);
+        }else if(pkp>=250_000_000&&pkp<500_000_000){
+            pajak=(int)(pkp*0.25);
+        }else if(pkp>=500_000_000){
+            pajak=(int)(pkp*0.3);
+        }
+        return pajak;
     }
 }
 
