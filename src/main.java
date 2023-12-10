@@ -134,6 +134,19 @@ public class main {
 
                     InfoPPh(InfoPajak);
 
+                } else if (pajak == 2) {
+                    System.out.println("Pajak Bumi dan Bangunan (PBB) merupakan sebuah biaya yang harus disetorkan atas keberadaan tanah dan bangunan \n"
+                                        "yang memberikan keuntungan dan kedudukan sosial ekonomi bagi seseorang ataupun badan. Karena Pajak Bumi dan Bangunan \n" (PBB) 
+                                        "bersifat kebendaan, maka besaran tarifnya ditentukan dari keadaan objek bumi atau bangunan yang ada.");
+                    System.out.println("Menu Informasi :");
+                    System.out.println("a. Objek dan Subjek");
+                    System.out.println("b. Bukan Objek");
+                    System.out.println("c. Hukum");
+                    System.out.println("d. NJOP");
+                    System.out.println("Informasi apa yang ingin anda cari?");
+                    jenisInfor = sc.next();
+                    InfoPBB(jenisInfor);
+
                 } else if (pajak == 3){
                     System.out.println("Pajak kendaraan bermotor (PKB) adalah pajak yang dikenakan atas kepemilikan dan/atau penguasaan kendaraan bermotor,\n" + 
                                         "termasuk kendaraan beroda beserta gandengannya yang digunakan di jalan darat dan kendaraan bermotor yang dioperasikan di air .");
@@ -601,6 +614,65 @@ public class main {
         return pajak;
     }
 
+    static void InfoPBB (String jenisInfor) {
+        if (jenisInfor.equalsIgnoreCase("Objek dan Subjek")) {
+            System.out.println();
+            System.out.println("Definisi dari objek Pajak Bumi dan Bangunan (objek PBB) sendiri merupakan tanah atau bangunan yang wajib untuk dipungut pajak. \n"
+                                "bumi dalam Pajak Bumi dan Bangunan meliputi:");
+            System.out.println("    1. Sawah");
+            System.out.println("    2. Ladang");
+            System.out.println("    3. Kebun");
+            System.out.println("    4. Tanah");
+            System.out.println("    5. Pekarangan");
+            System.out.println("    6. Tambang");
+            System.out.println("Sedangkan, untuk objek bangunan dalam Pajak Bumi dan Bangunan meliputi:");
+            System.out.println("    1. Rumah Tinggal");
+            System.out.println("    2. Bangunan Usaha");
+            System.out.println("    3. Gedung Bertingkat");
+            System.out.println("    4. Pusat Perbelanjaan");
+            System.out.println("    5. Pagar Mewah");
+            System.out.println("    6. Kolam Renang");
+            System.out.println("    7. Jalan Tol");
+        } else if (jenisInfor.equalsIgnoreCase("Bukan Objek")) {
+            System.out.println();
+            System.out.println("Setelah mengetahui apa saja yang menjadi objek dari Pajak Bumi dan Bangunan (PBB),\n" 
+                                "sebenarnya tidak setiap tanah dan bangunan yang ada dapat menjadi objek dalam Pajak Bumi dan Bangunan (PBB),\n" 
+                                "ada beberapa juga yang tidak masuk ke dalam objek Pajak Bumi dan Bangunan (PBB), yaitu dapat dikelompokkan berdasarkan penggunaannya:");
+            System.out.println("1. Dipergunakan untuk kepentingan umum dan tidak memperoleh keuntungan di bidang:");
+            System.out.println("    - Sosial");
+            System.out.println("    - Ibadah");
+            System.out.println("    - Kesehatan");
+            System.out.println("    - Kebudayaan");
+            System.out.println("    - Pendidikan");
+            System.out.println("    - Sejarah");
+            System.out.println("2. Dipergunakan untuk menjaga flora dan fauna:");
+            System.out.println("    - Hutan Suaka Alam");
+            System.out.println("    - Hutan Lindung");
+            System.out.println("    - Taman Nasional");
+            System.out.println("3. Dipergunakan oleh perwakilan negara atau organisasi internasional:");
+            System.out.println("    - Konsulat");
+            System.out.println("    - Kedutaan");
+        } else if (jenisInfor.equalsIgnoreCase("Hukum")) {
+            System.out.println();
+            System.out.println("Pajak Bumi dan Bangunan (PBB) pada dasarnya diatur dalam beberapa Undang-Undang di Indonesia, yaitu:");
+            System.out.println("1. Undang-Undang (UU) No.12 Tahun 1994 Tentang Perubahan atas Undang-Undang (UU) No. 12 Tahun 1985 terkait Pajak Bumi dan Bangunan (PBB)");
+            System.out.println("   yang mengatur semua tentang pungutan atas Pajak Bumi dan Bangunan (PBB)");
+            System.out.println("2. Undang-Undang (UU) No. 28 Tahun 2009 Tentang Pajak dan Retribusi Daerah yang menjelaskan:");
+            System.out.println("   - Bahwa pemerintah kabupaten atau pemerintah kota memiliki wewenang dalam melakukan pemungutan atas Pajak Bumi dan Bangunan (PBB) di sektor pedesaan dan perkotaan (PBB-P2)");
+            System.out.println("   - Bahwa pemerintah atau pusat memiliki wewenang terhadap sektor Pertambangan, Perhutanan, dan Perkebunan (PBB-P3)");
+        } else if (jenisInfor.equalsIgnoreCase("NJOP")) {
+            System.out.println();
+            System.out.println("Nilai Jual Objek Pajak (NJOP) dan dihitung berdasarkan harga rata-rata atau harga pasar pada saat melakukan transaksi jual beli.\n" 
+                                "Dasar pengenaan pungutan ini ditetapkan oleh Menteri Keuangan (Menkeu)");
+            System.out.println("Namun, setiap daerah memiliki Nilai Jual Objek Pajak (NJOP) yang berbeda-beda dikarenakan adanya pengaruh dari beberapa dasar penetapan untuk objek bumi dan bangunan, yaitu:");
+            System.out.println("    1. Bahan yang digunakan dalam banguann tersebut");
+            System.out.println("    2. Letak");
+            System.out.println("    3. Rekayasa");
+            System.out.println("    4. Kondisi Lingkungan");
+            System.out.println("    5. Pemanfaatan");
+            System.out.println("    6. Peruntukan");
+        }
+    }
 
     static void infoPKB (String jensPKB){
         Scanner sc=new Scanner(System.in);
