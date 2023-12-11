@@ -71,7 +71,7 @@ public class main {
                 }
             }else if (pilih.equalsIgnoreCase("off")) {
                 System.out.println();
-                System.out.println("==========================TERIMA KASIH==========================");
+                System.out.println("===========================TERIMA KASIH===========================");
                 System.out.println();
                 break;
             }else {
