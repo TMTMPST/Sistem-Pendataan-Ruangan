@@ -155,9 +155,9 @@ public class main {
                     System.out.println("Pajak kendaraan bermotor (PKB) adalah pajak yang dikenakan atas kepemilikan dan/atau penguasaan kendaraan bermotor,\n" + 
                                         "termasuk kendaraan beroda beserta gandengannya yang digunakan di jalan darat dan kendaraan bermotor yang dioperasikan di air .");
                     System.out.println("Menu Informasi :");
-                    System.out.println("a. Hukum\n" );
+                    System.out.println("a. Hukum" );
                     System.out.println("b. Denda");
-
+                    System.out.println("c. Jenis");
                     System.out.println("Informasi apa yang ingin anda cari?");
                     String jensPKBString = sc.next();
                     infoPKB(jensPKBString);
