@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 public class main {
 
@@ -155,6 +156,7 @@ public class main {
                                         "termasuk kendaraan beroda beserta gandengannya yang digunakan di jalan darat dan kendaraan bermotor yang dioperasikan di air .");
                     System.out.println("Menu Informasi :");
                     System.out.println("a. Hukum\n" );
+                    System.out.println("b. Denda");
 
                     System.out.println("Informasi apa yang ingin anda cari?");
                     String jensPKBString = sc.next();
@@ -709,6 +711,32 @@ public class main {
                         "Selain ketiga peraturan perundang-undangan tersebut, pajak kendaraan bermotor juga diatur dalam peraturan daerah provinsi dan kabupaten/kota. Peraturan daerah ini mengatur tentang hal-hal yang belum diatur dalam peraturan perundang-undangan yang lebih tinggi, seperti tarif pajak kendaraan bermotor, tata cara pembayaran pajak kendaraan bermotor, dan sanksi atas pelanggaran pajak kendaraan bermotor.");
             } if (info.equalsIgnoreCase("n")) {
                 System.out.println("");
+            }
+        } if (jensPKB.equalsIgnoreCase("Denda")) {
+            System.out.println("Denda pajak kendaraan bermotor di Indonesia diatur dalam Peraturan Pemerintah Nomor 76 Tahun 2020 tentang Pajak Kendaraan Bermotor. Denda tersebut dikenakan kepada pemilik kendaraan bermotor yang terlambat membayar pajak.\r\n" + //
+                    "\r\n" + 
+                    "Berikut adalah list denda pajak kendaraan bermotor:\r\n" + 
+                    "\r\n" + 
+                    "Keterlambatan 2 hari hingga 1 bulan: Denda sebesar 25% dari Pajak Kendaraan Bermotor (PKB).\r\n" + 
+                    "Keterlambatan 2 bulan hingga 1 tahun: Denda sebesar 25% dari PKB ditambah dengan sanksi administratif berupa bunga sebesar 2% per bulan dari jumlah pajak yang terutang.\r\n" + //
+                    "Keterlambatan lebih dari 1 tahun: Denda sebesar 25% dari PKB ditambah dengan sanksi administratif berupa bunga sebesar 2% per bulan dari jumlah pajak yang terutang, dan tunggakan pajak kendaraan bermotor dianggap sebagai tunggakan pajak daerah lainnya.");
+        } if (jensPKB.equalsIgnoreCase("Jenis")) {
+            System.out.println("1. Jenis Kendaraan Yang Tekena Pajak");
+            System.out.println("2. Jenis Kendaraan Yang Tidak Tekena Pajak");
+            System.out.println("Masukkan Input          : ");
+            int inp = sc.nextInt();
+            if (inp == 1) {
+                System.out.println("Kendaraan yang Terkena Pajak");
+                System.out.println("- Mobil pribadi");
+                System.out.println("- Sepeda Motor");
+                System.out.println("- Bus");
+                System.out.println("- Truk");
+            } if (inp == 2) {
+                System.out.println("Kendaraan yang Tidak Terkena Pajak");
+                System.out.println("- Kereta Api");
+                System.out.println("- Kendaraan bermotor yang semata-mata digunakan untuk keperluan pertahanan dan keamanan negara, seperti tank, pesawat tempur");
+                System.out.println("- Kendaraan bermotor yang digunakan untuk kepentingan sosial, keagamaan, dan kemanusiaan, seperti ambulans, pemadam kebakaran, mobil jenazah");
+                System.out.println("- Kendaraan bermotor yang dimiliki oleh pemerintah pusat dan daerah, seperti mobil dinas, mobil patroli");
             }
         }
     }
