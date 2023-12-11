@@ -717,9 +717,9 @@ public class main {
                     "\r\n" + 
                     "Berikut adalah list denda pajak kendaraan bermotor:\r\n" + 
                     "\r\n" + 
-                    "Keterlambatan 2 hari hingga 1 bulan: Denda sebesar 25% dari Pajak Kendaraan Bermotor (PKB).\r\n" + 
-                    "Keterlambatan 2 bulan hingga 1 tahun: Denda sebesar 25% dari PKB ditambah dengan sanksi administratif berupa bunga sebesar 2% per bulan dari jumlah pajak yang terutang.\r\n" + //
-                    "Keterlambatan lebih dari 1 tahun: Denda sebesar 25% dari PKB ditambah dengan sanksi administratif berupa bunga sebesar 2% per bulan dari jumlah pajak yang terutang, dan tunggakan pajak kendaraan bermotor dianggap sebagai tunggakan pajak daerah lainnya.");
+                    "- Keterlambatan 2 hari hingga 1 bulan: Denda sebesar 25% dari Pajak Kendaraan Bermotor (PKB).\r\n" + 
+                    "- Keterlambatan 2 bulan hingga 1 tahun: Denda sebesar 25% dari PKB ditambah dengan sanksi administratif berupa bunga sebesar 2% per bulan dari jumlah pajak yang terutang.\r\n" + //
+                    "- Keterlambatan lebih dari 1 tahun: Denda sebesar 25% dari PKB ditambah dengan sanksi administratif berupa bunga sebesar 2% per bulan dari jumlah pajak yang terutang, dan tunggakan pajak kendaraan bermotor dianggap sebagai tunggakan pajak daerah lainnya.");
         } if (jensPKB.equalsIgnoreCase("Jenis")) {
             System.out.println("1. Jenis Kendaraan Yang Tekena Pajak");
             System.out.println("2. Jenis Kendaraan Yang Tidak Tekena Pajak");
