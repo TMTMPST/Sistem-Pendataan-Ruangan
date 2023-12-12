@@ -3,7 +3,8 @@ import java.util.Scanner;
 public class main {
 
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
 
         long[] akun = new long[10];
         long username, password;
@@ -15,7 +16,7 @@ public class main {
             System.out.println("Silahkan mengetik Login / Daftar");
             System.out.println("Ketik OFF untuk mematikan program\n\n");
             System.out.print("LOGIN / DAFTAR / OFF: ");
-            pilih=sc.nextLine();
+            pilih=scan.nextLine();
 
             if (pilih.equalsIgnoreCase("daftar")) {
                 System.out.println("\n\n=======================----PENDAFTARAN----=======================");
@@ -330,7 +331,7 @@ public class main {
                     }else if(pajak==3){
                         String jenPKB;        
                         do {
-                            System.out.print("Masukkan jenis\t\t\t\t: ");
+                            System.out.print("Masukkan jenis Kendaraan (Motor/Mobil) \t: ");
                             jenPKB=input.next();
 
                             if(jenPKB.equalsIgnoreCase("motor")){
