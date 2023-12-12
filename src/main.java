@@ -371,8 +371,9 @@ public class main {
                                     } else {
                                         denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 35000;
                                     }
+                                    totpajak = denda + totPajak1;
                                     System.out.println("Denda anda                   : "+ denda);
-                                    System.out.println("Total pajak anda             : "+ totPajak1);
+                                    System.out.println("Total pajak anda             : "+ totPajak);
                                     System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
 
                                 }else{
@@ -385,8 +386,9 @@ public class main {
                                     } else {
                                         denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 83000;
                                     }
+                                    totpajak = denda + totPajak1;
                                     System.out.println("Denda Anda                 :");
-                                    System.out.println("Total pajak anda             : "+ totPajak1);
+                                    System.out.println("Total pajak anda             : "+ totPajak);
                                     System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
                                 }
                                 break;
@@ -427,8 +429,9 @@ public class main {
                                     } else {
                                         denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 83000;
                                     }
+                                            totpajak = denda + totPajak1;
                                     System.out.println("Denda Anda                 :");
-                                    System.out.println("Total pajak anda             : "+ totPajak1);
+                                    System.out.println("Total pajak anda             : "+ totPajak);
                                     System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
                                 } else if (bahanBakar.equalsIgnoreCase("bensin")) {
                                     System.out.print("Masukkan cc kendaraan                 : ");
@@ -446,8 +449,9 @@ public class main {
                                             } else {
                                                 denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 83000;
                                             }
+                                            totpajak = denda + totPajak1;
                                             System.out.println("Denda Anda                 :");
-                                            System.out.println("Total pajak anda             : "+ totPajak1);
+                                            System.out.println("Total pajak anda             : "+ totPajak);
                                             System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
 
                                         } else if (jenMobil.equalsIgnoreCase("truck")) {
@@ -460,8 +464,9 @@ public class main {
                                             } else {
                                                 denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 83000;
                                             }
+                                            totpajak = denda + totPajak1;
                                             System.out.println("Denda Anda                 :");
-                                            System.out.println("Total pajak anda             : "+ totPajak1);
+                                            System.out.println("Total pajak anda             : "+ totPajak);
                                             System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
 
                                         }
@@ -478,8 +483,9 @@ public class main {
                                             } else {
                                                 denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 83000;
                                             }
+                                            totpajak = denda + totPajak1;
                                             System.out.println("Denda Anda                 :");
-                                            System.out.println("Total pajak anda             : "+ totPajak1);
+                                            System.out.println("Total pajak anda             : "+ totPajak);
                                             System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
 
                                         } else if (jenMobil.equalsIgnoreCase("bus")){
@@ -492,8 +498,9 @@ public class main {
                                             } else {
                                                 denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 73000;
                                             }
+                                            totpajak = denda + totPajak1;
                                             System.out.println("Denda Anda                 :");
-                                            System.out.println("Total pajak anda             : "+ totPajak1);
+                                            System.out.println("Total pajak anda             : "+ totpajak);
                                             System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
                                         }
                                     }
