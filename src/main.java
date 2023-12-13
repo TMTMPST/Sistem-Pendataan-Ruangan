@@ -339,7 +339,7 @@ public class main {
                                 int TNKB, administrasi=50000, terbitSTNK, totPajak1, totPajak2, bulanJatuhTempo, tahunJatuhTempo, bulanBayar, tahunBayar;
                                 float progresif=0.5f, presentase;
                                 byte urutKendaraan;
-                                double denda;
+                                double denda, totpajak;
                                 
                                 System.out.print("Kendaraan ke-                         : ");
                                 urutKendaraan=input.nextByte();
@@ -373,7 +373,7 @@ public class main {
                                     }
                                     totpajak = denda + totPajak1;
                                     System.out.println("Denda anda                   : "+ denda);
-                                    System.out.println("Total pajak anda             : "+ totPajak);
+                                    System.out.println("Total pajak anda             : "+ totpajak);
                                     System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
 
                                 }else{
@@ -388,7 +388,7 @@ public class main {
                                     }
                                     totpajak = denda + totPajak1;
                                     System.out.println("Denda Anda                 :");
-                                    System.out.println("Total pajak anda             : "+ totPajak);
+                                    System.out.println("Total pajak anda             : "+ totpajak);
                                     System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
                                 }
                                 break;
@@ -398,7 +398,7 @@ public class main {
                                 int administrasi=50000;
                                 float progresif=0.5f, presentase;
                                 byte urutKendaraan;
-                                double denda;
+                                double denda, totpajak;
                                 String jenMobil, bahanBakar;
                                 
                                 System.out.print("Kendaraan ke-                         : ");
@@ -431,7 +431,7 @@ public class main {
                                     }
                                             totpajak = denda + totPajak1;
                                     System.out.println("Denda Anda                 :");
-                                    System.out.println("Total pajak anda             : "+ totPajak);
+                                    System.out.println("Total pajak anda             : "+ totpajak);
                                     System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
                                 } else if (bahanBakar.equalsIgnoreCase("bensin")) {
                                     System.out.print("Masukkan cc kendaraan                 : ");
@@ -451,7 +451,7 @@ public class main {
                                             }
                                             totpajak = denda + totPajak1;
                                             System.out.println("Denda Anda                 :");
-                                            System.out.println("Total pajak anda             : "+ totPajak);
+                                            System.out.println("Total pajak anda             : "+ totpajak);
                                             System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
 
                                         } else if (jenMobil.equalsIgnoreCase("truck")) {
@@ -466,7 +466,7 @@ public class main {
                                             }
                                             totpajak = denda + totPajak1;
                                             System.out.println("Denda Anda                 :");
-                                            System.out.println("Total pajak anda             : "+ totPajak);
+                                            System.out.println("Total pajak anda             : "+ totpajak);
                                             System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
 
                                         }
@@ -485,7 +485,7 @@ public class main {
                                             }
                                             totpajak = denda + totPajak1;
                                             System.out.println("Denda Anda                 :");
-                                            System.out.println("Total pajak anda             : "+ totPajak);
+                                            System.out.println("Total pajak anda             : "+ totpajak);
                                             System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
 
                                         } else if (jenMobil.equalsIgnoreCase("bus")){
