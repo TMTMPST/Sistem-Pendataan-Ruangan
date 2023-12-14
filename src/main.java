@@ -335,11 +335,10 @@ public class main {
                             jenPKB=input.next();
 
                             if(jenPKB.equalsIgnoreCase("motor")){
-                                int cc, PKB, koefBobot, operasi1;
-                                int TNKB, administrasi=50000, terbitSTNK, totPajak1, totPajak2, bulanJatuhTempo, tahunJatuhTempo, bulanBayar, tahunBayar;
-                                float progresif=0.5f, presentase;
+                                int cc, PKB, koefBobot;
+                                int TNKB, terbitSTNK, bulanJatuhTempo, tahunJatuhTempo, bulanBayar, tahunBayar;
                                 byte urutKendaraan;
-                                double denda, totpajak;
+                                
                                 
                                 System.out.print("Kendaraan ke-                         : ");
                                 urutKendaraan=input.nextByte();
@@ -361,50 +360,22 @@ public class main {
                                 bulanBayar=input.nextInt();
                                 System.out.print("Masukkan tahun anda membayar      : ");
                                 tahunBayar=input.nextInt();
-                                if(cc<250){
-                                    presentase=((urutKendaraan*progresif)+1)/100;
-                                    operasi1=((PKB/2)*100)*koefBobot;
-                                    totPajak1=(int)(operasi1*presentase)+32000;
-                                    totPajak2= totPajak1+TNKB+terbitSTNK+35000+administrasi+32000;
-                                    if (((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) <= 1) {
-                                        denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
-                                    } else {
-                                        denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 35000;
-                                    }
-                                    totpajak = denda + totPajak1;
-                                    System.out.println("Denda anda                   : "+ denda);
-                                    System.out.println("Total pajak anda             : "+ totpajak);
-                                    System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
 
-                                }else{
-                                    presentase=(urutKendaraan*progresif)+1;
-                                    operasi1=((PKB/2)*100)*koefBobot;
-                                    totPajak1=(int)(operasi1*presentase)+80000;
-                                    totPajak2= totPajak1+TNKB+terbitSTNK+83000+administrasi+80000;
-                                    if (((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) <= 1) {
-                                        denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
-                                    } else {
-                                        denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 83000;
-                                    }
-                                    totpajak = denda + totPajak1;
-                                    System.out.println("Denda Anda                 :");
-                                    System.out.println("Total pajak anda             : "+ totpajak);
-                                    System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
-                                }
-                                break;
-                            }if (jenPKB.equalsIgnoreCase("mobil")){
-                                int cc, PKB, operasi1;
-                                int TNKB, terbitSTNK, totPajak1, totPajak2, bulanJatuhTempo, tahunJatuhTempo, bulanBayar, tahunBayar;
-                                int administrasi=50000;
-                                float progresif=0.5f, presentase;
-                                byte urutKendaraan;
-                                double denda, totpajak;
-                                String jenMobil, bahanBakar;
+                                double hasilTotPajak[] = new double[3];
+                                hasilTotPajak = perhitunganPKBMotor(cc, urutKendaraan, koefBobot, PKB, TNKB, terbitSTNK, bulanJatuhTempo, bulanBayar, tahunJatuhTempo, tahunBayar);
+
+                                System.out.println("Denda Anda                 :" + hasilTotPajak[0]);
+                                System.out.println("Total pajak anda             : "+ hasilTotPajak[1]);
+                                System.out.println("Total pajak 5 tahunan anda   : "+ hasilTotPajak[2]);
                                 
+                            } if (jenPKB.equalsIgnoreCase("mobil")) {
+                                int cc, PKB;
+                                int TNKB, terbitSTNK, bulanJatuhTempo, tahunJatuhTempo, bulanBayar, tahunBayar;
+                                byte urutKendaraan;
+                                String jenMobil, bahanBakar;
+
                                 System.out.print("Kendaraan ke-                         : ");
                                 urutKendaraan=input.nextByte();
-                                System.out.print("Masukkan jenis kendaraan listrik / bensin : ");
-                                bahanBakar = input.next();
                                 System.out.print("Masukkan nilai PKB kendaraan          : ");
                                 PKB=input.nextInt();
                                 System.out.print("Masukkan biaya pengesahan STNK        : ");
@@ -419,94 +390,20 @@ public class main {
                                 bulanBayar=input.nextInt();
                                 System.out.print("Masukkan tahun anda membayar      : ");
                                 tahunBayar=input.nextInt();
+                                System.out.print("Masukkan jenis kendaraan listrik / bensin : ");
+                                bahanBakar = input.next();
+                                System.out.println("\n\nUntuk Kendaraan Berbahan Bakar BENSIN");
+                                System.out.println(" Jika Bahan Bakar Listrik KETIK (0)");
+                                System.out.print("Masukkan cc kendaraan                 : ");
+                                cc=input.nextInt();
+                                System.out.print("Masukkan Jenis Kendaraan (Mobil / Truck / bus): ");
+                                jenMobil = input.next();
+                                double hasilTotPajak[] = new double[3];
 
-                                if (bahanBakar.equalsIgnoreCase("listrik")) {
-                                    operasi1= PKB * 10/100;
-                                    totPajak1=(int)(operasi1);
-                                    totPajak2= totPajak1+TNKB+terbitSTNK+83000+administrasi;
-                                    if (((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) <= 1) {
-                                        denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
-                                    } else {
-                                        denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 83000;
-                                    }
-                                            totpajak = denda + totPajak1;
-                                    System.out.println("Denda Anda                 :");
-                                    System.out.println("Total pajak anda             : "+ totpajak);
-                                    System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
-                                } else if (bahanBakar.equalsIgnoreCase("bensin")) {
-                                    System.out.print("Masukkan cc kendaraan                 : ");
-                                    cc=input.nextInt();
-                                    if (cc >= 2400) {
-                                        System.out.println("Masukkan jenis Mobil (biasa / truck)");
-                                        jenMobil = input.next();
-                                        if (jenMobil.equalsIgnoreCase("mobil")) {
-                                            presentase=(urutKendaraan*progresif)+1.5f;
-                                            operasi1=((PKB/2)*100);
-                                            totPajak1=(int)(operasi1*presentase)+143000;
-                                            totPajak2= totPajak1+TNKB+terbitSTNK+83000+administrasi+143000;
-                                            if (((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) <= 1) {
-                                                denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
-                                            } else {
-                                                denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 83000;
-                                            }
-                                            totpajak = denda + totPajak1;
-                                            System.out.println("Denda Anda                 :");
-                                            System.out.println("Total pajak anda             : "+ totpajak);
-                                            System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
-
-                                        } else if (jenMobil.equalsIgnoreCase("truck")) {
-                                            presentase=(urutKendaraan*progresif)+1.5f;
-                                            operasi1=((PKB/2)*100);
-                                            totPajak1=(int)(operasi1*presentase)+163000;
-                                            totPajak2= totPajak1+TNKB+terbitSTNK+83000+administrasi+163000;
-                                            if (((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) <= 1) {
-                                                denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
-                                            } else {
-                                                denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 83000;
-                                            }
-                                            totpajak = denda + totPajak1;
-                                            System.out.println("Denda Anda                 :");
-                                            System.out.println("Total pajak anda             : "+ totpajak);
-                                            System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
-
-                                        }
-                                    } else if (cc >= 1600) {
-                                        System.out.println("Masukkan jenis Mobil (mobil / bus)");
-                                        jenMobil = input.next();
-                                        if (jenMobil.equalsIgnoreCase("mobil")) {
-                                            presentase=(urutKendaraan*progresif)+1.5f;
-                                            operasi1=((PKB/2)*100);
-                                            totPajak1=(int)(operasi1*presentase)+73000;
-                                            totPajak2= totPajak1+TNKB+terbitSTNK+83000+administrasi+73000;
-                                            if (((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) <= 1) {
-                                                denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
-                                            } else {
-                                                denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 83000;
-                                            }
-                                            totpajak = denda + totPajak1;
-                                            System.out.println("Denda Anda                 :");
-                                            System.out.println("Total pajak anda             : "+ totpajak);
-                                            System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
-
-                                        } else if (jenMobil.equalsIgnoreCase("bus")){
-                                            presentase=(urutKendaraan*progresif)+1.5f;
-                                            operasi1=((PKB/2)*100);
-                                            totPajak1=(int)(operasi1*presentase)+90000;
-                                            totPajak2= totPajak1+TNKB+terbitSTNK+83000+administrasi+90000;
-                                            if (((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) <= 1) {
-                                                denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
-                                            } else {
-                                                denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 73000;
-                                            }
-                                            totpajak = denda + totPajak1;
-                                            System.out.println("Denda Anda                 :");
-                                            System.out.println("Total pajak anda             : "+ totpajak);
-                                            System.out.println("Total pajak 5 tahunan anda   : "+ totPajak2);
-                                        }
-                                    }
-                                }                        
-                            }else {
-                                System.out.println("Jenis Kendaraan tidak valid. Silahkan Masukkan kembali");
+                                hasilTotPajak = perhitunganPKBMobil(jenMobil, cc, urutKendaraan, bahanBakar, PKB, terbitSTNK, bulanJatuhTempo, tahunJatuhTempo, bulanBayar, tahunBayar, TNKB);
+                                System.out.println("Denda Anda                 :" + hasilTotPajak[0]);
+                                System.out.println("Total pajak anda             : "+ hasilTotPajak[1]);
+                                System.out.println("Total pajak 5 tahunan anda   : "+ hasilTotPajak[2]);
                             }
                         }while (true);
                             
@@ -748,4 +645,170 @@ public class main {
             }
         }
     }
+
+    static double[] perhitunganPKBMotor (int cc, byte urutKendaraan, int koefBobot, int PKB, int TNKB, int terbitSTNK, int bulanJatuhTempo, int bulanBayar, int tahunJatuhTempo, int tahunBayar){
+        int operasi1;
+        int administrasi=50000, totPajak1, totPajak2;
+        float progresif=0.5f, presentase;
+        double denda;
+        double totpajak[] = new double[3];
+        if(cc<250){
+            presentase=((urutKendaraan*progresif)+1)/100;
+            operasi1  =((PKB/2)*100)*koefBobot;
+            totPajak1 =(int)(operasi1*presentase)+32000;
+            totPajak2 = totPajak1+TNKB+terbitSTNK+35000+administrasi+32000;
+            if (((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) <= 1) {
+                denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
+            } else {
+                denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 35000;
+            }
+            totpajak[0] = denda;
+            totpajak[1] = denda + totPajak1;
+            totpajak[2] = totPajak2;
+        } else {
+            presentase=(urutKendaraan*progresif)+1;
+            operasi1=((PKB/2)*100)*koefBobot;
+            totPajak1=(int)(operasi1*presentase)+80000;
+            totPajak2= totPajak1+TNKB+terbitSTNK+83000+administrasi+80000;
+            if (((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) <= 1) {
+                denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
+            } else {
+                denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 83000;
+            }
+            totpajak[0] = denda;
+            totpajak[1] = denda + totPajak1;
+            totpajak[2] = totPajak2;
+        }
+        return totpajak;
+    }
+
+    static double[] perhitunganPKBMobil(String jenMobil, int cc, byte urutKendaraan, String bahanBakar, int PKB, int terbitSTNK, int bulanJatuhTempo, int tahunJatuhTempo, int bulanBayar, int tahunBayar, int TNKB){
+        int operasi1;
+        int totPajak1, totPajak2 ;
+        int administrasi=50000;
+        float progresif=0.5f, presentase;
+        double denda;
+        double totpajak[] = new double[3];
+        if (bahanBakar.equalsIgnoreCase("listrik")) {
+            operasi1= PKB * 10/100;
+            totPajak1=(int)(operasi1);
+            totPajak2= totPajak1+TNKB+terbitSTNK+83000+administrasi;
+            if (((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) <= 1) {
+                denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
+            } else {
+                denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 83000;
+            }
+            totpajak[0] = denda;
+            totpajak[1] = denda + totPajak1;
+            totpajak[2] = totPajak2;
+        } if (bahanBakar.equalsIgnoreCase("bensin")) {
+            if (cc >= 2400) {
+                if (jenMobil.equalsIgnoreCase("mobil")) {
+                    presentase=(urutKendaraan*progresif)+1.5f;
+                    operasi1=((PKB/2)*100);
+                    totPajak1=(int)(operasi1*presentase)+143000;
+                    totPajak2= totPajak1+TNKB+terbitSTNK+83000+administrasi+143000;
+                    if (((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) <= 1) {
+                        denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
+                    } else {
+                        denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 83000;
+                    }
+                    totpajak[0] = denda;
+                    totpajak[1] = denda + totPajak1;
+                    totpajak[2] = totPajak2;
+                } if (jenMobil.equalsIgnoreCase("Truck")) {
+                    presentase=(urutKendaraan*progresif)+1.5f;
+                    operasi1=((PKB/2)*100);
+                    totPajak1=(int)(operasi1*presentase)+163000;
+                    totPajak2= totPajak1+TNKB+terbitSTNK+83000+administrasi+163000;
+                    if (((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) <= 1) {
+                        denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
+                    } else {
+                        denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 83000;
+                    }
+                    totpajak[0] = denda;
+                    totpajak[1] = denda + totPajak1;
+                    totpajak[2] = totPajak2;
+                }
+            } if (cc >= 1600) {
+                if (jenMobil.equalsIgnoreCase("mobil")) {
+                    presentase=(urutKendaraan*progresif)+1.5f;
+                    operasi1=((PKB/2)*100);
+                    totPajak1=(int)(operasi1*presentase)+73000;
+                    totPajak2= totPajak1+TNKB+terbitSTNK+83000+administrasi+73000;
+                    if (((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) <= 1) {
+                        denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
+                    } else {
+                        denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 83000;
+                    }
+                    totpajak[0] = denda;
+                    totpajak[1] = denda + totPajak1;
+                    totpajak[2] = totPajak2;
+                } if (jenMobil.equalsIgnoreCase("truck")) {
+                    presentase=(urutKendaraan*progresif)+1.5f;
+                    operasi1=((PKB/2)*100);
+                    totPajak1=(int)(operasi1*presentase)+90000;
+                    totPajak2= totPajak1+TNKB+terbitSTNK+83000+administrasi+90000;
+                    if (((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) <= 1) {
+                        denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
+                    } else {
+                        denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 73000;
+                    }
+                    totpajak[0] = denda;
+                    totpajak[1] = denda + totPajak1;
+                    totpajak[2] = totPajak2;
+                } if (jenMobil.equalsIgnoreCase("bus")) {
+                    presentase=(urutKendaraan*progresif)+1.5f;
+                    operasi1=((PKB/2)*100);
+                    totPajak1=(int)(operasi1*presentase)+90000;
+                    totPajak2= totPajak1+TNKB+terbitSTNK+83000+administrasi+90000;
+                    if (((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) <= 1) {
+                        denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo);
+                    } else {
+                        denda = PKB * 0.25 * ((tahunBayar-tahunJatuhTempo)*12)+(bulanBayar-bulanJatuhTempo) + 73000;
+                    }
+                    totpajak[0] = denda;
+                    totpajak[1] = denda + totPajak1;
+                    totpajak[2] = totPajak2;
+                }
+            }
+        }
+        return totpajak;
+    }
+
+
+//     static double[] pehitunganPBB(long luasTanah, long luasBangunan, long hargaBangunanPerMeter, long hargaTanahPerMeter){
+//         long NJOPBumi, NJOPBangunan;
+//         double denda = 0.02, tetapan1 = 0.005, tetapan2 = 0.4, tetapan3 = 0.2, NJOP, NJKP, PBB, hasil, totDenda, PBBSetDenda;      
+//         long NJOPTKP = 12000000;
+//         int bulan;
+//         String telat;
+        
+        
+//         NJOPBumi = luasTanah * hargaTanahPerMeter;
+//         NJOPBangunan = luasBangunan * hargaBangunanPerMeter;
+//         NJOP = NJOPBumi + NJOPBangunan;
+
+//         if(NJOP > 1000000000) {
+//             NJKP = tetapan2 * (NJOP - NJOPTKP);
+//         } else {
+//             NJKP = tetapan3 * (NJOP - NJOPTKP);
+//         }
+
+//         PBB = tetapan1 * NJKP;
+//         pehitunganPBBTelat();
+
+//         return PBBSetDenda;
+//     }
+    
+//     static double pehitunganPBBTelat(){
+//         if (telat.equalsIgnoreCase("y")) {
+//             hasil = denda * bulan;
+//             totDenda = PBB * hasil;
+//             PBBSetDenda = PBB + totDenda;
+//         } else {
+//             totDenda = 0;
+//             PBBSetDenda = PBB;
+//         }
+//     }
 }
