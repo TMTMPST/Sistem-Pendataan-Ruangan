@@ -272,14 +272,10 @@ public class main {
                             }
                         }
                     }else if(pajak==2){
-
                         long luasTanah, luasBangunan, hargaTanahPerMeter, hargaBangunanPerMeter;
-                        long NJOPBumi, NJOPBangunan;
-                        double denda = 0.02, tetapan1 = 0.005, tetapan2 = 0.4, tetapan3 = 0.2, NJOP, NJKP, PBB, hasil, totDenda, PBBSetDenda;      
-                        long NJOPTKP = 12000000;
                         int bulan;
                         String telat;
-            
+
                         System.out.print("Masukkan luas tanah (meter persegi)   : ");
                         luasTanah = input.nextInt();
                         System.out.print("Masukkan luas bangunan (meter persegi): ");
@@ -288,44 +284,19 @@ public class main {
                         hargaTanahPerMeter = input.nextInt();
                         System.out.print("Masukkan harga bangunan per meter     : ");
                         hargaBangunanPerMeter = input.nextInt();
-            
-                        NJOPBumi = luasTanah * hargaTanahPerMeter;
-                        NJOPBangunan = luasBangunan * hargaBangunanPerMeter;
-                        NJOP = NJOPBumi + NJOPBangunan;
-            
-                        if(NJOP > 1000000000) {
-                            NJKP = tetapan2 * (NJOP - NJOPTKP);
-                        } else {
-                            NJKP = tetapan3 * (NJOP - NJOPTKP);
-                        }
-            
-                        PBB = tetapan1 * NJKP;
-            
-                        do {
-                            System.out.print("Apakah anda telat membayar pajak (y/n)? ");
-                            telat = input.next();
-                        } while (!telat.equalsIgnoreCase("y") && !telat.equalsIgnoreCase("n"));
-            
-                        if (telat.equalsIgnoreCase("y")) {
-                            do {
-                                System.out.print("Berapa bulan anda tidak membayar pajak: ");
-                                bulan = input.nextInt();
-                            } while (bulan <= 0);
-                            hasil = denda * bulan;
-                            totDenda = PBB * hasil;
-                            PBBSetDenda = PBB + totDenda;
-                        } else {
-                            totDenda = 0;
-                            PBBSetDenda = PBB;
-                        }
-                        
-                        System.out.println("NJOP Bumi        : " + NJOPBumi);
-                        System.out.println("NJOP Bangunan    : " + NJOPBangunan);
-                        System.out.println("Total NJOP       : " + (double) NJOP);
-                        System.out.println("NJKP             : " + (double) NJKP);
-                        System.out.println("PBB              : " + (double) PBB);
-                        System.out.println("Denda            : " + (double) totDenda);
-                        System.out.println("PBB Setelah Denda: " + (double) PBBSetDenda );
+                        System.out.print("Apakah anda telat membayar pajak (y/n)? ");
+                        telat = input.next();
+                        System.out.print("Berapa bulan anda tidak membayar pajak: ");
+                        bulan = input.nextInt();
+
+                        double[] pajakPBB = perhitunganPBB(bulan ,telat, luasTanah, luasBangunan, hargaTanahPerMeter, hargaBangunanPerMeter);
+                        System.out.println("NJOP Bumi        : " + pajakPBB[0]);
+                        System.out.println("NJOP Bangunan    : " + pajakPBB[1]);
+                        System.out.println("Total NJOP       : " + pajakPBB[2]);
+                        System.out.println("NJKP             : " + pajakPBB[3]);
+                        System.out.println("PBB              : " + pajakPBB[4]);
+                        System.out.println("Denda            : " + pajakPBB[5]);
+                        System.out.println("PBB Setelah Denda: " + pajakPBB[6]);
 
 
                     }else if(pajak==3){
@@ -777,38 +748,39 @@ public class main {
     }
 
 
-//     static double[] pehitunganPBB(long luasTanah, long luasBangunan, long hargaBangunanPerMeter, long hargaTanahPerMeter){
-//         long NJOPBumi, NJOPBangunan;
-//         double denda = 0.02, tetapan1 = 0.005, tetapan2 = 0.4, tetapan3 = 0.2, NJOP, NJKP, PBB, hasil, totDenda, PBBSetDenda;      
-//         long NJOPTKP = 12000000;
-//         int bulan;
-//         String telat;
+    static double[] perhitunganPBB(int bulan,String telat, long luasTanah, long luasBangunan, long hargaBangunanPerMeter, long hargaTanahPerMeter){
+        long NJOPBumi, NJOPBangunan;
+        double denda = 0.02, tetapan1 = 0.005, tetapan2 = 0.4, tetapan3 = 0.2, NJOP, NJKP, PBB, hasil, totDenda, PBBSetDenda;      
+        long NJOPTKP = 12000000;
+        double[] totpajakPBB = new double[7];
         
+        NJOPBumi = luasTanah * hargaTanahPerMeter;
+        NJOPBangunan = luasBangunan * hargaBangunanPerMeter;
+        NJOP = NJOPBumi + NJOPBangunan;
         
-//         NJOPBumi = luasTanah * hargaTanahPerMeter;
-//         NJOPBangunan = luasBangunan * hargaBangunanPerMeter;
-//         NJOP = NJOPBumi + NJOPBangunan;
+        if(NJOP > 1000000000) {
+            NJKP = tetapan2 * (NJOP - NJOPTKP);
+        } else {
+            NJKP = tetapan3 * (NJOP - NJOPTKP);
+        }
+        PBB = tetapan1 * NJKP;
+        if (telat.equalsIgnoreCase("y")) {
+            hasil = denda * bulan;
+            totDenda = PBB * hasil;
+            PBBSetDenda = PBB + totDenda;
+        } else {
+            totDenda = 0;
+            PBBSetDenda = PBB;
+        }
+        totpajakPBB[0] = NJOPBumi;
+        totpajakPBB[1] = NJOPBangunan;
+        totpajakPBB[2] = NJOP;
+        totpajakPBB[3] = NJKP;
+        totpajakPBB[4] = PBB;
+        totpajakPBB[5] = denda;
+        totpajakPBB[6] = PBBSetDenda;
 
-//         if(NJOP > 1000000000) {
-//             NJKP = tetapan2 * (NJOP - NJOPTKP);
-//         } else {
-//             NJKP = tetapan3 * (NJOP - NJOPTKP);
-//         }
-
-//         PBB = tetapan1 * NJKP;
-//         pehitunganPBBTelat();
-
-//         return PBBSetDenda;
-//     }
+        return totpajakPBB;
+    }
     
-//     static double pehitunganPBBTelat(){
-//         if (telat.equalsIgnoreCase("y")) {
-//             hasil = denda * bulan;
-//             totDenda = PBB * hasil;
-//             PBBSetDenda = PBB + totDenda;
-//         } else {
-//             totDenda = 0;
-//             PBBSetDenda = PBB;
-//         }
-//     }
 }
