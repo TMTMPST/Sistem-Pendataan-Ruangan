@@ -325,7 +325,7 @@ public class main {
                         System.out.println("NJKP             : " + (long) NJKP);
                         System.out.println("PBB              : " + (long) PBB);
                         System.out.println("Denda            : " + (long) totDenda);
-                        System.out.println("PBB Setelah Denda: " + (doubles) PBBSetDenda );
+                        System.out.println("PBB Setelah Denda: " + (double) PBBSetDenda );
 
 
                     }else if(pajak==3){
