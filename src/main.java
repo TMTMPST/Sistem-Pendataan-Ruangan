@@ -230,7 +230,7 @@ public class main {
                                 System.out.println("Penghasilan anda tidak dikenakan pajak");
                             }else if(pkp>1){
                                 if (selisihBulan>0){
-                                    int hasilPajak[] = new int[3];
+                                    double hasilPajak[] = new double[3];
                                     hasilPajak = pajakDenganDenda(pkp, totPersenDenda);
                                     System.out.println("Total pajak anda: " + hasilPajak[0]);
                                     System.out.println("Total denda anda: "+hasilPajak[1]);
@@ -260,7 +260,7 @@ public class main {
                                 System.out.println("Penghasilan anda tidak dikenakan pajak");
                             }else if(pkp>1){
                                 if (selisihBulan>0){
-                                    int hasilPajak[] = new int[3];
+                                    double hasilPajak[] = new double[3];
                                     hasilPajak = pajakDenganDenda(pkp, totPersenDenda);
                                     System.out.println("Total pajak anda: " + hasilPajak[0]);
                                     System.out.println("Total denda anda: "+hasilPajak[1]);
@@ -321,11 +321,11 @@ public class main {
                         
                         System.out.println("NJOP Bumi        : " + NJOPBumi);
                         System.out.println("NJOP Bangunan    : " + NJOPBangunan);
-                        System.out.println("Total NJOP       : " + (long) NJOP);
-                        System.out.println("NJKP             : " + (long) NJKP);
-                        System.out.println("PBB              : " + (long) PBB);
-                        System.out.println("Denda            : " + (long) totDenda);
-                        System.out.println("PBB Setelah Denda: " + (long) PBBSetDenda );
+                        System.out.println("Total NJOP       : " + (double) NJOP);
+                        System.out.println("NJKP             : " + (double) NJKP);
+                        System.out.println("PBB              : " + (double) PBB);
+                        System.out.println("Denda            : " + (double) totDenda);
+                        System.out.println("PBB Setelah Denda: " + (double) PBBSetDenda );
 
 
                     }else if(pajak==3){
@@ -591,8 +591,8 @@ public class main {
         }
     }
 
-    static int[] pajakDenganDenda (int pkp, double totPersenDenda) {
-        int[] pajak = new int[3];
+    static double[] pajakDenganDenda (int pkp, double totPersenDenda) {
+        double[] pajak = new double[3];
         if(pkp<50000000){
             pajak[0]=(int)(pkp*0.05);
             pajak[1]=(int)(pajak[0]*totPersenDenda);
