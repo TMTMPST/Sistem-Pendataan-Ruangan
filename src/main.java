@@ -6,7 +6,7 @@ public class main {
         Scanner sc = new Scanner(System.in);
         Scanner scan = new Scanner(System.in);
 
-        long[] akun = new long[10];
+        double[][] akun = new double[10][8];
         long username, password;
         String[] nama = new String[10];
         String pilih, pengguna;
@@ -18,10 +18,11 @@ public class main {
             System.out.print("LOGIN / DAFTAR / OFF: ");
             pilih=scan.nextLine();
 
+            int i=0;
             if (pilih.equalsIgnoreCase("daftar")) {
                 System.out.println("\n\n=======================----PENDAFTARAN----=======================");
                 System.out.print("Masukkan nama pengguna                  : ");
-                pengguna=sc.nextLine();
+                pengguna=sc.next();
                 System.out.print("Masukkan username(NIM)                  : ");
                 username=sc.nextLong();
                 System.out.print("Masukkan password(minimal 4 digit angka): ");
@@ -29,10 +30,9 @@ public class main {
                 System.out.println("\n\n=======================------------------=======================");
 
 
-                int i=0;
                 for (;i<akun.length;i++){
-                    if (akun[i]==0) {
-                        akun[i]=(username+password);
+                    if (akun[i][0]==0) {
+                        akun[i][0]=(username+password);
                         nama[i]=pengguna;
                         break;
                     }
@@ -54,9 +54,8 @@ public class main {
                     sc.nextLine();
                     System.out.println("\n\n=======================------------------=======================");
 
-                    int i = 0;
                     for (; i < akun.length; i++) {
-                        if ((username+password)==akun[i]) {
+                        if ((username+password)==akun[i][0]) {
                             break;
                         }
                     }
@@ -95,6 +94,7 @@ public class main {
             System.out.println("|INPUT  | PILIH MENU             |");
             System.out.println("|1      | INFORMASI              |");
             System.out.println("|2      | Calculator             |");
+            System.out.println("|3      | Cek Rekap Nilai Pajak  |");
             System.out.println("|0      | EXIT                   |");
             System.out.println("==================================");
 
@@ -169,6 +169,9 @@ public class main {
                     System.out.println();
                     continue;
                 }
+            }else if (menu==3) {
+                rekapPajak(i, akun);
+                continue;
             }else if (menu==0) {
                 break;
             }
@@ -232,11 +235,13 @@ public class main {
                                 if (selisihBulan>0){
                                     double hasilPajak[] = new double[3];
                                     hasilPajak = pajakDenganDenda(pkp, totPersenDenda);
+                                    akun[i][1] = hasilPajak[2];
                                     System.out.println("Total pajak anda: " + hasilPajak[0]);
                                     System.out.println("Total denda anda: "+hasilPajak[1]);
                                     System.out.println("Total yang harus dibayar: "+hasilPajak[2]);
                                 }else{
                                     totpajak=pajakTanpaDenda(pkp);
+                                    akun[i][1] = totpajak;
                                     System.out.println("Total pajak anda: " + totpajak);
                                 }
                             }
@@ -262,11 +267,13 @@ public class main {
                                 if (selisihBulan>0){
                                     double hasilPajak[] = new double[3];
                                     hasilPajak = pajakDenganDenda(pkp, totPersenDenda);
+                                    akun[i][1] = hasilPajak[2];
                                     System.out.println("Total pajak anda: " + hasilPajak[0]);
                                     System.out.println("Total denda anda: "+hasilPajak[1]);
                                     System.out.println("Total yang harus dibayar: "+hasilPajak[2]);
                                 }else{
                                     totpajak=pajakTanpaDenda(pkp);
+                                    akun[i][1] = (double)totpajak;
                                     System.out.println("Total pajak anda: " + totpajak);
                                 }
                             }
@@ -290,6 +297,7 @@ public class main {
                         bulan = input.nextInt();
 
                         double[] pajakPBB = perhitunganPBB(bulan ,telat, luasTanah, luasBangunan, hargaTanahPerMeter, hargaBangunanPerMeter);
+                        akun[i][2] = pajakPBB[6];
                         System.out.println("NJOP Bumi        : " + pajakPBB[0]);
                         System.out.println("NJOP Bangunan    : " + pajakPBB[1]);
                         System.out.println("Total NJOP       : " + pajakPBB[2]);
@@ -334,11 +342,13 @@ public class main {
 
                                 double hasilTotPajak[] = new double[3];
                                 hasilTotPajak = perhitunganPKBMotor(cc, urutKendaraan, koefBobot, PKB, TNKB, terbitSTNK, bulanJatuhTempo, bulanBayar, tahunJatuhTempo, tahunBayar);
+                                akun[i][3] = hasilTotPajak[1];
+                                akun[i][4] = hasilTotPajak[2];
 
                                 System.out.println("Denda Anda                 :" + hasilTotPajak[0]);
                                 System.out.println("Total pajak anda             : "+ hasilTotPajak[1]);
                                 System.out.println("Total pajak 5 tahunan anda   : "+ hasilTotPajak[2]);
-                                
+                                break;
                             } if (jenPKB.equalsIgnoreCase("mobil")) {
                                 int cc, PKB;
                                 int TNKB, terbitSTNK, bulanJatuhTempo, tahunJatuhTempo, bulanBayar, tahunBayar;
@@ -372,16 +382,19 @@ public class main {
                                 double hasilTotPajak[] = new double[3];
 
                                 hasilTotPajak = perhitunganPKBMobil(jenMobil, cc, urutKendaraan, bahanBakar, PKB, terbitSTNK, bulanJatuhTempo, tahunJatuhTempo, bulanBayar, tahunBayar, TNKB);
+                                akun[i][5] = hasilTotPajak[1];
+                                akun[i][6] = hasilTotPajak[2];
+
                                 System.out.println("Denda Anda                 :" + hasilTotPajak[0]);
                                 System.out.println("Total pajak anda             : "+ hasilTotPajak[1]);
                                 System.out.println("Total pajak 5 tahunan anda   : "+ hasilTotPajak[2]);
+                                break;
                             }
                         }while (true);
                             
                     }else if(pajak==4){
+                        double[] totalPajakBea = new double[2];
                         double hargaBarang, asuransi, biayaKirim;
-                        double beaMasuk=0.075, ppn=0.11;
-                        int nilaiPabean, BM, nilaiImpor, totalPungutan, kurs=15700;
 
                         System.out.print("Masukkan harga barang impor (USD)      : ");
                         hargaBarang=input.nextDouble();
@@ -389,20 +402,17 @@ public class main {
                         asuransi=input.nextDouble();
                         System.out.print("Masukkan biaya kirim barang impor (USD): ");
                         biayaKirim=input.nextDouble();
-                        
-                        nilaiPabean=(int)((hargaBarang+asuransi+biayaKirim)*kurs);
-                        BM=(int)(beaMasuk*nilaiPabean);
-                        nilaiImpor=(int)((nilaiPabean+BM)*ppn);
-                        totalPungutan=BM+nilaiImpor;
 
-                        System.out.println("Total pajak Bea Masuk anda adalah: "+BM);
-                        System.out.println("Total yang harus dibayar         : "+totalPungutan);
+                        totalPajakBea = pajakBeaCukai(hargaBarang, asuransi, biayaKirim);
+                        akun[i][7] = totalPajakBea[1];
+
+                        System.out.println("Total pajak Bea Masuk anda adalah: "+totalPajakBea[0]);
+                        System.out.println("Total yang harus dibayar         : "+totalPajakBea[1]);
                     }else if (pajak>4){
                         System.out.println("Maaf input yang anda masukkan salah"); //perulangan pada input pajak
                     }
                 }if (pajak==0) {
-                    System.out.println("Terima kasih! Semoga harimu senin terus!");
-                    System.out.println();
+                    rekapPajak(i, akun);
                     break;
                 }
             }
@@ -782,5 +792,33 @@ public class main {
 
         return totpajakPBB;
     }
+
+    static double[] pajakBeaCukai(double hargaBarang, double asuransi, double biayaKirim) {
+        double beaMasuk=0.075, ppn=0.11;
+        double nilaiPabean, nilaiImpor, kurs=15700;
+        double[] pajakBea = new double[2];
+
+        nilaiPabean=(int)((hargaBarang+asuransi+biayaKirim)*kurs);
+        pajakBea[0]=(int)(beaMasuk*nilaiPabean);
+        nilaiImpor=(int)((nilaiPabean+pajakBea[0])*ppn);
+        pajakBea[1]=pajakBea[0]+nilaiImpor;
+
+        return pajakBea;
+    }
     
+    public static void rekapPajak(int i, double[][] akun) {
+        System.out.println();
+        System.out.println("Terima kasih! Berikut rekap nilai pajak anda!");
+        System.out.println("1. Pajak PPh            : " + akun[i][1]);
+        System.out.println("2. Pajak PBB            : " + akun[i][2]);
+        System.out.println("3. Pajak Kendaraan Bermotor");
+        System.out.println("    a. Motor ");
+        System.out.println("       Pajak tahunan    : " + akun[i][3]);
+        System.out.println("       Pajak 5 tahunan  : " + akun[i][4]);
+        System.out.println("    b. Mobil ");
+        System.out.println("       Pajak tahunan    : " + akun[i][5]);
+        System.out.println("       Pajak 5 tahunan  : " + akun[i][6]);
+        System.out.println("4. Pajak Bea Cukai      : " + akun[i][7]);
+        System.out.println();
+    }
 }
