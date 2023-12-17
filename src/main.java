@@ -729,6 +729,7 @@ public class main {
             System.out.println("- PPh pasal 22 impor sebanyak 7,5% sampai 10%");
             System.out.println();
         } else if (JenisBeaCukai.equalsIgnoreCase("d")) {
+            System.out.println();
             System.out.println("Kurs pajak bea cukai adalah nilai dari kurs yang digunakan dalam bertransaksi perpajakan di Indonesia. Setiap terdapat transaksi\n" +
                                 "antarnegara dengan menggunakan mata asing, maka akan menerapkan sistem ini.");
             System.out.println();
