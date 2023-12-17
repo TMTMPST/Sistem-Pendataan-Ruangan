@@ -93,8 +93,8 @@ public class main {
             System.out.println("==================================");
             System.out.println("|INPUT  | PILIH MENU             |");
             System.out.println("|1      | INFORMASI              |");
-            System.out.println("|2      | Calculator             |");
-            System.out.println("|3      | Cek Rekap Nilai Pajak  |");
+            System.out.println("|2      | CALCULATOR             |");
+            System.out.println("|3      | CEK REKAP NILAI PAJAK  |");
             System.out.println("|0      | EXIT                   |");
             System.out.println("==================================");
 
@@ -124,23 +124,26 @@ public class main {
             
                 if (pajak==1) {
                     String InfoPajak = null;
+                    System.out.println();
                     System.out.println("PPh merupakan pajak penghasilan yang wajib dibayarkan oleh para pekerja setiap tahunnya.");
                     System.out.println("Pajak PPh ini sendiri tergantung pada jumlah PKP dan PTKP dari setiap perkerja.");
                     System.out.println("nilai presentase pajak yang dikenakan pada setiap orang berbeda tergantung dari besarnya penghasilan.");
+                    System.out.println();
                     System.out.println("Menu informasi:");
                     System.out.println("a. PTKP");
                     System.out.println("b. Tanggungan");
                     System.out.println("c. Presentase");
-                    System.out.println("Informasi apa yang ingin anda cari?");
+                    System.out.println();
+                    System.out.print("Informasi apa yang ingin anda cari? ");
                     InfoPajak = sc.next();
 
                     InfoPPh(InfoPajak);
 
                 } else if (pajak == 2) {
                     System.out.println();
-                    System.out.println("Pajak Bumi dan Bangunan (PBB) merupakan sebuah biaya yang harus disetorkan atas keberadaan tanah dan bangunan \n" +
-                                        "yang memberikan keuntungan dan kedudukan sosial ekonomi bagi seseorang ataupun badan. Karena Pajak Bumi dan Bangunan (PBB)\n" +
-                                        "bersifat kebendaan, maka besaran tarifnya ditentukan dari keadaan objek bumi atau bangunan yang ada.");
+                    System.out.println("Pajak Bumi dan Bangunan (PBB) merupakan sebuah biaya yang harus disetorkan atas keberadaan tanah dan bangunan yang memberikan \n" +
+                                        "keuntungan dan kedudukan sosial ekonomi bagi seseorang ataupun badan. Karena Pajak Bumi dan Bangunan (PBB) bersifat kebendaan, \n" +
+                                        "maka besaran tarifnya ditentukan dari keadaan objek bumi atau bangunan yang ada.");
                     System.out.println();
                     System.out.println("Menu Informasi :");
                     System.out.println("a. Objek dan Subjek");
@@ -153,15 +156,37 @@ public class main {
                     InfoPBB(Infor);
 
                 } else if (pajak == 3){
-                    System.out.println("Pajak kendaraan bermotor (PKB) adalah pajak yang dikenakan atas kepemilikan dan/atau penguasaan kendaraan bermotor,\n" + 
-                                        "termasuk kendaraan beroda beserta gandengannya yang digunakan di jalan darat dan kendaraan bermotor yang dioperasikan di air .");
+                    System.out.println();
+                    System.out.println("Pajak kendaraan bermotor (PKB) adalah pajak yang dikenakan atas kepemilikan dan/atau penguasaan kendaraan bermotor, \n" + 
+                                        "termasuk kendaraan beroda beserta gandengannya yang digunakan di jalan darat dan kendaraan bermotor yang dioperasikan di air.");
+                    System.out.println();
                     System.out.println("Menu Informasi :");
                     System.out.println("a. Hukum" );
                     System.out.println("b. Denda");
                     System.out.println("c. Jenis");
-                    System.out.println("Informasi apa yang ingin anda cari?");
+                    System.out.println();
+                    System.out.print("Informasi apa yang ingin anda cari? ");
                     String jensPKBString = sc.next();
                     infoPKB(jensPKBString);
+
+                } else if (pajak == 4) {
+                    System.out.println();
+                    System.out.println("Bea cukai adalah istilah yang memiliki makna setiap satu suku katanya. Bea sendiri berarti sebuah pungutan oleh negara \n" +
+                                        "terhadap barang yang diekspor atau impor . Bea merujuk pada ongkos barang yang masuk dan keluar pada suatu negara.\n" +
+                                        "\n" +
+                                        "Sementara itu, cukai berarti pungutan negara pada sebuah barang yang memiliki karakteristik sesuai pada \n" +
+                                        "perundang-undangan cukai yang ditetapkan. Artinya, jika digabungkan, bea cukai adalah tindakan pungutan negara pada \n" +
+                                        "barang ekspor impor serta barang yang telah ditentukan di undang-undang cukai.");
+                    System.out.println();
+                    System.out.println("Menu Informasi :");
+                    System.out.println("a. Karakteristik");
+                    System.out.println("b. Jenis");
+                    System.out.println("c. Tarif");
+                    System.out.println("d. Kurs");
+                    System.out.println();
+                    System.out.print("Informasi apa yang ingin anda cari? ");
+                    String Info = sc.next();
+                    InfoBeaCukai(Info);
                 
                 }else if (pajak==0) {
                     System.out.println();
@@ -210,18 +235,18 @@ public class main {
                         status=input.next();
                         
                         if(status.equalsIgnoreCase("iya")){
-                            System.out.println("masukkan gaji bersih selama 1 tahun:");
+                            System.out.print("masukkan gaji bersih selama 1 tahun: ");
                             gaji=input.nextInt();
                             System.out.println("masukkan jumlah tanggungan");
-                            System.out.print("(anak + istri):");
+                            System.out.print("(anak + istri)                     : ");
                             jmltanggungan=input.nextInt();
-                            System.out.print("Masukkan bulan jatuh tempo: ");
+                            System.out.print("Masukkan bulan jatuh tempo         : ");
                             bulanJatuhTempo=input.nextInt();
-                            System.out.print("Masukkan tahun jatuh tempo: ");
+                            System.out.print("Masukkan tahun jatuh tempo         : ");
                             tahunJatuhTempo=input.nextInt();
-                            System.out.print("Masukkan bulan anda membayar: ");
+                            System.out.print("Masukkan bulan anda membayar       : ");
                             bulanBayar=input.nextInt();
-                            System.out.print("Masukkan tahun anda membayar: ");
+                            System.out.print("Masukkan tahun anda membayar       : ");
                             tahunBayar=input.nextInt();
 
                             PTKP=(jmltanggungan*tanggungan)+pribadi;
@@ -246,15 +271,15 @@ public class main {
                                 }
                             }
                         }else {
-                            System.out.println("masukkan gaji bersih selama 1 tahun:");
+                            System.out.print("masukkan gaji bersih selama 1 tahun: ");
                             gaji=input.nextInt();
-                            System.out.print("Masukkan bulan jatuh tempo: ");
+                            System.out.print("Masukkan bulan jatuh tempo         : ");
                             bulanJatuhTempo=input.nextInt();
-                            System.out.print("Masukkan tahun jatuh tempo: ");
+                            System.out.print("Masukkan tahun jatuh tempo         : ");
                             tahunJatuhTempo=input.nextInt();
-                            System.out.print("Masukkan bulan anda membayar: ");
+                            System.out.print("Masukkan bulan anda membayar       : ");
                             bulanBayar=input.nextInt();
-                            System.out.print("Masukkan tahun anda membayar: ");
+                            System.out.print("Masukkan tahun anda membayar       : ");
                             tahunBayar=input.nextInt();
                             PTKP=(0*tanggungan)+pribadi;
                             pkp=gaji-PTKP;
@@ -290,13 +315,13 @@ public class main {
                         hargaTanahPerMeter = input.nextInt();
                         System.out.print("Masukkan harga bangunan per meter     : ");
                         hargaBangunanPerMeter = input.nextInt();
-                        System.out.print("Masukkan bulan jatuh tempo: ");
+                        System.out.print("Masukkan bulan jatuh tempo            : ");
                         bulan[0]=input.nextInt();
-                        System.out.print("Masukkan tahun jatuh tempo: ");
+                        System.out.print("Masukkan tahun jatuh tempo            : ");
                         bulan[1]=input.nextInt();
-                        System.out.print("Masukkan bulan anda membayar: ");
+                        System.out.print("Masukkan bulan anda membayar          : ");
                         bulan[2]=input.nextInt();
-                        System.out.print("Masukkan tahun anda membayar: ");
+                        System.out.print("Masukkan tahun anda membayar          : ");
                         bulan[3]=input.nextInt();
 
                         double[] pajakPBB = perhitunganPBB(bulan , luasTanah, luasBangunan, hargaTanahPerMeter, hargaBangunanPerMeter);
@@ -313,7 +338,7 @@ public class main {
                     }else if(pajak==3){
                         String jenPKB;        
                         do {
-                            System.out.print("Masukkan jenis Kendaraan (Motor/Mobil) \t: ");
+                            System.out.print("Masukkan jenis Kendaraan (Motor/Mobil): ");
                             jenPKB=input.next();
 
                             if(jenPKB.equalsIgnoreCase("motor")){
@@ -338,9 +363,9 @@ public class main {
                                 bulanJatuhTempo=input.nextInt();
                                 System.out.print("Masukkan tahun jatuh tempo            : ");
                                 tahunJatuhTempo=input.nextInt();
-                                System.out.print("Masukkan bulan anda membayar      : ");
+                                System.out.print("Masukkan bulan anda membayar          : ");
                                 bulanBayar=input.nextInt();
-                                System.out.print("Masukkan tahun anda membayar      : ");
+                                System.out.print("Masukkan tahun anda membayar          : ");
                                 tahunBayar=input.nextInt();
 
                                 double hasilTotPajak[] = new double[3];
@@ -348,9 +373,9 @@ public class main {
                                 akun[i][3] = hasilTotPajak[1];
                                 akun[i][4] = hasilTotPajak[2];
 
-                                System.out.println("Denda Anda                 :" + hasilTotPajak[0]);
-                                System.out.println("Total pajak anda             : "+ hasilTotPajak[1]);
-                                System.out.println("Total pajak 5 tahunan anda   : "+ hasilTotPajak[2]);
+                                System.out.println("Denda Anda                            : "+ hasilTotPajak[0]);
+                                System.out.println("Total pajak anda                      : "+ hasilTotPajak[1]);
+                                System.out.println("Total pajak 5 tahunan anda            : "+ hasilTotPajak[2]);
                                 break;
                             } if (jenPKB.equalsIgnoreCase("mobil")) {
                                 int cc, PKB;
@@ -370,15 +395,16 @@ public class main {
                                 bulanJatuhTempo=input.nextInt();
                                 System.out.print("Masukkan tahun jatuh tempo            : ");
                                 tahunJatuhTempo=input.nextInt();
-                                System.out.print("Masukkan bulan anda membayar      : ");
+                                System.out.print("Masukkan bulan anda membayar          : ");
                                 bulanBayar=input.nextInt();
-                                System.out.print("Masukkan tahun anda membayar      : ");
+                                System.out.print("Masukkan tahun anda membayar          : ");
                                 tahunBayar=input.nextInt();
-                                System.out.print("Masukkan jenis kendaraan listrik / bensin : ");
+                                System.out.println();
+                                System.out.print("Masukkan jenis kendaraan listrik / bensin     : ");
                                 bahanBakar = input.next();
-                                System.out.println("\n\nUntuk Kendaraan Berbahan Bakar BENSIN");
+                                System.out.println("\nUntuk Kendaraan Berbahan Bakar BENSIN");
                                 System.out.println(" Jika Bahan Bakar Listrik KETIK (0)");
-                                System.out.print("Masukkan cc kendaraan                 : ");
+                                System.out.print("Masukkan cc kendaraan                         : ");
                                 cc=input.nextInt();
                                 System.out.print("Masukkan Jenis Kendaraan (Mobil / Truck / bus): ");
                                 jenMobil = input.next();
@@ -388,7 +414,7 @@ public class main {
                                 akun[i][5] = hasilTotPajak[1];
                                 akun[i][6] = hasilTotPajak[2];
 
-                                System.out.println("Denda Anda                 :" + hasilTotPajak[0]);
+                                System.out.println("Denda Anda                   : "+ hasilTotPajak[0]);
                                 System.out.println("Total pajak anda             : "+ hasilTotPajak[1]);
                                 System.out.println("Total pajak 5 tahunan anda   : "+ hasilTotPajak[2]);
                                 break;
@@ -409,8 +435,8 @@ public class main {
                         totalPajakBea = pajakBeaCukai(hargaBarang, asuransi, biayaKirim);
                         akun[i][7] = totalPajakBea[1];
 
-                        System.out.println("Total pajak Bea Masuk anda adalah: "+totalPajakBea[0]);
-                        System.out.println("Total yang harus dibayar         : "+totalPajakBea[1]);
+                        System.out.println("Total pajak Bea Masuk anda adalah      : "+totalPajakBea[0]);
+                        System.out.println("Total yang harus dibayar               : "+totalPajakBea[1]);
                     }else if (pajak>4){
                         System.out.println("Maaf input yang anda masukkan salah"); //perulangan pada input pajak
                     }
@@ -426,16 +452,16 @@ public class main {
 }
 
     static void InfoPPh (String jenisInfo) {
-        if (jenisInfo.equalsIgnoreCase("ptkp")) {
+        if (jenisInfo.equalsIgnoreCase("a")) {
             System.out.println();
             System.out.println("PTKP(Penghasilan Tidak Kena Pajak)");
-            System.out.println("tarif Penghasilan Tidak Kena Pajak terbaru yang berlaku saat ini masih berdasarkan PMK 101/2016:");
+            System.out.println("Tarif Penghasilan Tidak Kena Pajak terbaru yang berlaku saat ini masih berdasarkan PMK 101/2016:");
             System.out.println("    1. PTKP orang pribadi sebesar Rp54.000.000,00;");
             System.out.println("    2. PTKP bagi WP yang kawin mendapat tambahan sebesar Rp4.500.000,00;");
             System.out.println("    3. Tambahan PTKP untuk istri yang penghasilannya dengan penghasilan suami sebesar Rp54.000.000,00;");
             System.out.println("    4. Tambahan PTKP untuk tanggungan, sebesar Rp4.500.000,00.");
             System.out.println();
-            System.out.println("besaran PTKP terbaru sesuai status pajak yang dimiliki oleh WP:");
+            System.out.println("Besaran PTKP terbaru sesuai status pajak yang dimiliki oleh WP:");
             System.out.println("==================================================================================");
             System.out.println("|Golongan                   |Kode                      |Tarif PTKP               |");
             System.out.println("|Tidak Kawin (TK)           |TK0 (tanpa tanggungan)    |Rp. 54.000.000,00        |");
@@ -451,14 +477,16 @@ public class main {
             System.out.println("|                           |K/I/2 (2 tanggungan)      |Rp. 121.500.000,00       |");
             System.out.println("|T                          |K/I/3 (3 tanggungan)      |Rp. 126.000.000,00       |");
             System.out.println("==================================================================================");
-        }else if (jenisInfo.equalsIgnoreCase("tanggungan")) {
+            System.out.println();
+        }else if (jenisInfo.equalsIgnoreCase("b")) {
             System.out.println();
             System.out.println("Menjadi tanggungan sepenuhnya menurut UU PPh berdasarkan keadaan yang dapat nyata terlihat yakni:");
             System.out.println("    a. Tinggal bersama-sama dengan Wajib Pajak");
             System.out.println("    b. Tidak mempunyai penghasilan sendiri");
             System.out.println("    c. Ditanggung oleh orang tuanya sendiri");
             System.out.println("Maksimal tanggungan dalam PTKP adalah 3 anak, meskipun memiliki lebih dari 3 anak.");
-        }else if (jenisInfo.equalsIgnoreCase("presentase")) {
+            System.out.println();
+        }else if (jenisInfo.equalsIgnoreCase("c")) {
             System.out.println();
             System.out.println("Berikut tarif progresif PPh pasal 21 atau penghasilan kena pajak penghasilan:");
             System.out.println("============================================================");
@@ -469,6 +497,7 @@ public class main {
             System.out.println("|IV             |Rp. 0 - 60 juta              |30%         |");
             System.out.println("|V              |Rp. 0 - 60 juta              |35%         |");
             System.out.println("============================================================");
+            System.out.println();
         }
     }
 
@@ -531,10 +560,9 @@ public class main {
             System.out.println();
         } else if (jenisInfor.equalsIgnoreCase("b")) {
             System.out.println();
-            System.out.println("Setelah mengetahui apa saja yang menjadi objek dari Pajak Bumi dan Bangunan (PBB),\n" +
-                                "sebenarnya tidak setiap tanah dan bangunan yang ada dapat menjadi objek dalam Pajak Bumi dan Bangunan (PBB),\n" +
-                                "ada beberapa juga yang tidak masuk ke dalam objek Pajak Bumi dan Bangunan (PBB),\n" +
-                                "yaitu dapat dikelompokkan berdasarkan penggunaannya:");
+            System.out.println("Setelah mengetahui apa saja yang menjadi objek dari Pajak Bumi dan Bangunan (PBB), sebenarnya tidak setiap tanah dan bangunan \n" +
+                                "yang ada dapat menjadi objek dalam Pajak Bumi dan Bangunan (PBB), ada beberapa juga yang tidak masuk ke dalam objek Pajak Bumi \n" +
+                                "dan Bangunan (PBB), yaitu dapat dikelompokkan berdasarkan penggunaannya:");
             System.out.println();
             System.out.println("1. Dipergunakan untuk kepentingan umum dan tidak memperoleh keuntungan di bidang:");
             System.out.println("    - Sosial");
@@ -556,10 +584,10 @@ public class main {
         } else if (jenisInfor.equalsIgnoreCase("c")) {
             System.out.println();
             System.out.println("Pajak Bumi dan Bangunan (PBB) pada dasarnya diatur dalam beberapa Undang-Undang di Indonesia, yaitu:");
-            System.out.println("1. Undang-Undang (UU) No.12 Tahun 1994 Tentang Perubahan atas Undang-Undang (UU) No. 12 Tahun 1985 terkait Pajak Bumi dan");
+            System.out.println("1. Undang-Undang (UU) No.12 Tahun 1994 Tentang Perubahan atas Undang-Undang (UU) No. 12 Tahun 1985 terkait Pajak Bumi dan ");
             System.out.println("   Bangunan (PBB) yang mengatur semua tentang pungutan atas Pajak Bumi dan Bangunan (PBB)");
             System.out.println("2. Undang-Undang (UU) No. 28 Tahun 2009 Tentang Pajak dan Retribusi Daerah yang menjelaskan:");
-            System.out.println("   - Bahwa pemerintah kabupaten atau pemerintah kota memiliki wewenang dalam melakukan pemungutan atas Pajak Bumi dan Bangunan");
+            System.out.println("   - Bahwa pemerintah kabupaten atau pemerintah kota memiliki wewenang dalam melakukan pemungutan atas Pajak Bumi dan Bangunan ");
             System.out.println("     (PBB) di sektor pedesaan dan perkotaan (PBB-P2)");
             System.out.println("   - Bahwa pemerintah atau pusat memiliki wewenang terhadap sektor Pertambangan, Perhutanan, dan Perkebunan (PBB-P3)");
             System.out.println();
@@ -568,7 +596,8 @@ public class main {
             System.out.println("Nilai Jual Objek Pajak (NJOP) dan dihitung berdasarkan harga rata-rata atau harga pasar pada saat melakukan transaksi jual beli.\n" +
                                 "Dasar pengenaan pungutan ini ditetapkan oleh Menteri Keuangan (Menkeu)");
             System.out.println();
-            System.out.println("Namun, setiap daerah memiliki Nilai Jual Objek Pajak (NJOP) yang berbeda-beda dikarenakan adanya pengaruh dari beberapa dasar penetapan untuk objek bumi dan bangunan, yaitu:");
+            System.out.println("Namun, setiap daerah memiliki Nilai Jual Objek Pajak (NJOP) yang berbeda-beda dikarenakan adanya pengaruh dari beberapa dasar \n" +
+                                "penetapan untuk objek bumi dan bangunan, yaitu:");
             System.out.println("    1. Bahan yang digunakan dalam banguann tersebut");
             System.out.println("    2. Letak");
             System.out.println("    3. Rekayasa");
@@ -581,52 +610,135 @@ public class main {
 
     static void infoPKB (String jensPKB){
         Scanner sc=new Scanner(System.in);
-        if (jensPKB.equalsIgnoreCase("hukum")) {
+        if (jensPKB.equalsIgnoreCase("a")) {
+            System.out.println();
             System.out.println("Hukum Hukum Yang mengatur PKB (Pajak Kendaraan Bermotor)");
             System.out.println("- Undang-Undang Nomor 28 Tahun 2009 tentang Pajak Daerah dan Retribusi Daerah\r\n" + //
-                    "- Peraturan Pemerintah Nomor 65 Tahun 2015 tentang Pajak Kendaraan Bermotor\r\n" + //
-                    "- Peraturan Menteri Dalam Negeri Nomor 1 Tahun 2021 tentang Penghitungan Dasar Pengenaan Pajak Kendaraan Bermotor dan Bea Balik Nama Kendaraan Bermotor Tahun 2021");
+                                "- Peraturan Pemerintah Nomor 65 Tahun 2015 tentang Pajak Kendaraan Bermotor\r\n" + //
+                                "- Peraturan Menteri Dalam Negeri Nomor 1 Tahun 2021 tentang Penghitungan Dasar Pengenaan Pajak Kendaraan Bermotor dan Bea Balik Nama Kendaraan Bermotor Tahun 2021");
+            System.out.println();
             System.out.println("Apakah Ingin info selengkapnya");
-            System.out.print("(y/n) :");
+            System.out.print("(y/n) : ");
             String info = sc.next();
 
             if (info.equalsIgnoreCase("y")) {
-                System.out.println("\nUndang-Undang Nomor 28 Tahun 2009 merupakan peraturan perundang-undangan yang mengatur secara umum tentang pajak daerah dan retribusi daerah. Dalam undang-undang ini, pajak kendaraan bermotor didefinisikan sebagai pajak atas kepemilikan dan/atau penguasaan kendaraan bermotor yang dioperasionalkan di wilayah Negara Kesatuan Republik Indonesia.\r\n" + //
-                        "\r\n" + //
-                        "Peraturan Pemerintah Nomor 65 Tahun 2015 merupakan peraturan pelaksana dari Undang-Undang Nomor 28 Tahun 2009. Peraturan pemerintah ini mengatur secara lebih rinci tentang pajak kendaraan bermotor, termasuk dasar pengenaan, tarif, dan tata cara pemungutan.\r\n" + //
-                        "\r\n" + //
-                        "Peraturan Menteri Dalam Negeri Nomor 1 Tahun 2021 merupakan peraturan yang mengatur tentang penghitungan dasar pengenaan pajak kendaraan bermotor dan bea balik nama kendaraan bermotor tahun 2021. Peraturan menteri ini mengatur tentang cara menghitung dasar pengenaan pajak kendaraan bermotor, termasuk untuk kendaraan bermotor yang baru diproduksi, kendaraan bermotor bekas, dan kendaraan bermotor yang mengalami perubahan.\r\n" + //
-                        "\r\n" + //
-                        "Selain ketiga peraturan perundang-undangan tersebut, pajak kendaraan bermotor juga diatur dalam peraturan daerah provinsi dan kabupaten/kota. Peraturan daerah ini mengatur tentang hal-hal yang belum diatur dalam peraturan perundang-undangan yang lebih tinggi, seperti tarif pajak kendaraan bermotor, tata cara pembayaran pajak kendaraan bermotor, dan sanksi atas pelanggaran pajak kendaraan bermotor.");
+                System.out.println();
+                System.out.println("\nUndang-Undang Nomor 28 Tahun 2009 merupakan peraturan perundang-undangan yang mengatur secara umum tentang pajak daerah dan \n" +
+                                    "retribusi daerah. Dalam undang-undang ini, pajak kendaraan bermotor didefinisikan sebagai pajak atas kepemilikan dan/atau \n" +
+                                    "penguasaan kendaraan bermotor yang dioperasionalkan di wilayah Negara Kesatuan Republik Indonesia.\r\n" +
+                                    "\r\n" +
+                                    "Peraturan Pemerintah Nomor 65 Tahun 2015 merupakan peraturan pelaksana dari Undang-Undang Nomor 28 Tahun 2009. Peraturan \n" +
+                                    "pemerintah ini mengatur secara lebih rinci tentang pajak kendaraan bermotor, termasuk dasar pengenaan, tarif, dan tata \n" +
+                                    "cara pemungutan.\r\n" +
+                                    "\r\n" + 
+                                    "Peraturan Menteri Dalam Negeri Nomor 1 Tahun 2021 merupakan peraturan yang mengatur tentang penghitungan dasar pengenaan pajak \n" +
+                                    "kendaraan bermotor dan bea balik nama kendaraan bermotor tahun 2021. Peraturan menteri ini mengatur tentang cara menghitung \n" +
+                                    "dasar pengenaan pajak kendaraan bermotor, termasuk untuk kendaraan bermotor yang baru diproduksi, kendaraan bermotor bekas, \n" +
+                                    "dan kendaraan bermotor yang mengalami perubahan.\r\n" + 
+                                    "\r\n" + 
+                                    "Selain ketiga peraturan perundang-undangan tersebut, pajak kendaraan bermotor juga diatur dalam peraturan daerah provinsi dan \n" +
+                                    "kabupaten/kota. Peraturan daerah ini mengatur tentang hal-hal yang belum diatur dalam peraturan perundang-undangan yang lebih \n" +
+                                    "tinggi, seperti tarif pajak kendaraan bermotor, tata cara pembayaran pajak kendaraan bermotor, dan sanksi atas pelanggaran \n" +
+                                    "pajak kendaraan bermotor.");
+                System.out.println();
             } if (info.equalsIgnoreCase("n")) {
                 System.out.println("");
             }
-        } if (jensPKB.equalsIgnoreCase("Denda")) {
-            System.out.println("Denda pajak kendaraan bermotor di Indonesia diatur dalam Peraturan Pemerintah Nomor 76 Tahun 2020 tentang Pajak Kendaraan Bermotor. Denda tersebut dikenakan kepada pemilik kendaraan bermotor yang terlambat membayar pajak.\r\n" + //
-                    "\r\n" + 
-                    "Berikut adalah list denda pajak kendaraan bermotor:\r\n" + 
-                    "\r\n" + 
-                    "- Keterlambatan 2 hari hingga 1 bulan: Denda sebesar 25% dari Pajak Kendaraan Bermotor (PKB).\r\n" + 
-                    "- Keterlambatan 2 bulan hingga 1 tahun: Denda sebesar 25% dari PKB ditambah dengan sanksi administratif berupa bunga sebesar 2% per bulan dari jumlah pajak yang terutang.\r\n" + //
-                    "- Keterlambatan lebih dari 1 tahun: Denda sebesar 25% dari PKB ditambah dengan sanksi administratif berupa bunga sebesar 2% per bulan dari jumlah pajak yang terutang, dan tunggakan pajak kendaraan bermotor dianggap sebagai tunggakan pajak daerah lainnya.");
-        } if (jensPKB.equalsIgnoreCase("Jenis")) {
+        } if (jensPKB.equalsIgnoreCase("b")) {
+            System.out.println();
+            System.out.println("Denda pajak kendaraan bermotor di Indonesia diatur dalam Peraturan Pemerintah Nomor 76 Tahun 2020 tentang Pajak Kendaraan \n" +
+                                "Bermotor. Denda tersebut dikenakan kepada pemilik kendaraan bermotor yang terlambat membayar pajak.\r\n" + 
+                                "\r\n" + 
+                                "Berikut adalah list denda pajak kendaraan bermotor:\r\n" + 
+                                "\r\n" + 
+                                "- Keterlambatan 2 hari hingga 1 bulan: Denda sebesar 25% dari Pajak Kendaraan Bermotor (PKB).\r\n" + 
+                                "- Keterlambatan 2 bulan hingga 1 tahun: Denda sebesar 25% dari PKB ditambah dengan sanksi administratif berupa bunga sebesar 2% per bulan dari jumlah pajak yang terutang.\r\n" + 
+                                "- Keterlambatan lebih dari 1 tahun: Denda sebesar 25% dari PKB ditambah dengan sanksi administratif berupa bunga sebesar 2% per bulan dari jumlah pajak yang terutang," +
+                                "dan tunggakan pajak kendaraan bermotor dianggap sebagai tunggakan pajak daerah lainnya.");
+            System.out.println();
+        } if (jensPKB.equalsIgnoreCase("c")) {
+            System.out.println();
             System.out.println("1. Jenis Kendaraan Yang Tekena Pajak");
             System.out.println("2. Jenis Kendaraan Yang Tidak Tekena Pajak");
-            System.out.println("Masukkan Input          : ");
+            System.out.println();
+            System.out.print("Masukkan Input          : ");
             int inp = sc.nextInt();
             if (inp == 1) {
+                System.out.println();
                 System.out.println("Kendaraan yang Terkena Pajak");
                 System.out.println("- Mobil pribadi");
                 System.out.println("- Sepeda Motor");
                 System.out.println("- Bus");
                 System.out.println("- Truk");
+                System.out.println();
             } if (inp == 2) {
+                System.out.println();
                 System.out.println("Kendaraan yang Tidak Terkena Pajak");
                 System.out.println("- Kereta Api");
                 System.out.println("- Kendaraan bermotor yang semata-mata digunakan untuk keperluan pertahanan dan keamanan negara, seperti tank, pesawat tempur");
-                System.out.println("- Kendaraan bermotor yang digunakan untuk kepentingan sosial, keagamaan, dan kemanusiaan, seperti ambulans, pemadam kebakaran, mobil jenazah");
+                System.out.println("- Kendaraan bermotor yang digunakan untuk kepentingan sosial, keagamaan, dan kemanusiaan, seperti ambulans, pemadam kebakaran, \n" +
+                                    "mobil jenazah");
                 System.out.println("- Kendaraan bermotor yang dimiliki oleh pemerintah pusat dan daerah, seperti mobil dinas, mobil patroli");
+                System.out.println();
             }
+        }
+    }
+
+    static void InfoBeaCukai (String JenisBeaCukai){
+        if (JenisBeaCukai.equalsIgnoreCase("a")) {
+            System.out.println();
+            System.out.println("Karakteristik barang kena cukai telah tertuang pada UU No. 35 Tahun 2007. Karakteristik inilah yang kemudian menjadi pembeda \n" +
+                                "pungutan bea cukai dengan pungutan produk dagang yang lainnya. Berdasarkan peraturan undang-undang tersebut, karakteristik \n" +
+                                "barang yang terkena bea cukai adalah:");
+            System.out.println("- Barang yang dalam pengedarannya membutuhkan pengawasan.");
+            System.out.println("- Barang yang apabila dipakai akan menimbulkan beberapa dampak negatif pada masyarakat dan lingkungan hidup.");
+            System.out.println("- Barang yang pengonsumsiannya perlu dikendalikan.");
+            System.out.println("- Barang yang pemakaiannya memerlukan pembebanan pungutan negara demi keseimbangan dan keadilan, atau barang yang dikenakan \n" +
+                                "cukai karena undang-undang.");
+            System.out.println();
+        } else if (JenisBeaCukai.equalsIgnoreCase("b")) {
+            System.out.println();
+            System.out.println("Jenis-jenis barang yang terkena bea cukai antara lain adalah produk yang terdiri dari:");
+            System.out.println("- Etanol atau etil alkohol yang dalam proses pembuatannya tidak memperhatikan bahan.");
+            System.out.println("- Minuman dengan kandungan etil alkohol berapapun kadarnya yang dalam tidak mengindahkan proses pembuatannya serta bahan yang \n" +
+                                "digunakan. Konsentrat dengan kandungan etil alkohol juga termasuk dalam jenis ini.");
+            System.out.println("- Hasil tembakau termasuk rokok, sigaret, cerutu, tembakau iris, rokok daun, serta hasil dari olahan tembakau yang lainnya. Hal \n" +
+                                "ini akan terkena bea cukai apabila tidak mengindahkan digunakan tidaknya bahan pembantu atau bahan pengganti dalam pembuatannya.");
+            System.out.println();
+        } else if (JenisBeaCukai.equalsIgnoreCase("c")) {
+            System.out.println();
+            System.out.println("Tarif Barang yang Terkena Bea Cukai");
+            System.out.println();
+            System.out.println("1. Barang Hasil Tembakau");
+            System.out.println("- Barang hasil tembakau yang dibuat di Indonesia: 5% dari harga awal jika harga yang digunakan adalah harga jual ecer. Dan 275% \n" +
+                                "dari harga awal jika harga yang digunakan adalah harga jual pabrik.");
+            System.out.println("- Barang hasil tembakau yang dibuat untuk impor: 57% dari harga awal jika harga yang digunakan adalah harga jual eceran. Dan \n" +
+                                "275% dari harga awal jika harga yang digunakan adalah nilai pabean yang sudah ditambah bea masuk.");
+            System.out.println();
+            System.out.println("2. Barang Cukai yang Lain");
+            System.out.println("- Barang yang dibuat di Indonesia: 80% dari harga awal jika harga yang digunakan adalah harga jual ecer. Dan 1.150% dari harga \n" +
+                                "awal jika harga yang digunakan adalah harga jual pabrik.");
+            System.out.println("- Barang yang dibuat untuk impor: 80% dari harga awal jika harga yang digunakan adalah harga jual eceran. Dan 1.150% dari harga \n" +
+                                "awal jika harga yang digunakan adalah nilai pabean yang sudah ditambah bea masuk.");
+            System.out.println();
+            System.out.println("Tarif Normal pada Pajak Impor");
+            System.out.println();
+            System.out.println("- 15% sampai 20% untuk tas");
+            System.out.println("- 15% sampai 25% untuk sepatu");
+            System.out.println("- PPN 10% untuk produk tekstil");
+            System.out.println("- PPh pasal 22 impor sebanyak 7,5% sampai 10%");
+            System.out.println();
+        } else if (JenisBeaCukai.equalsIgnoreCase("d")) {
+            System.out.println("Kurs pajak bea cukai adalah nilai dari kurs yang digunakan dalam bertransaksi perpajakan di Indonesia. Setiap terdapat transaksi\n" +
+                                "antarnegara dengan menggunakan mata asing, maka akan menerapkan sistem ini.");
+            System.out.println();
+            System.out.println("Tujuan digunakannya kurs pajak bea cukai yakni sebagai dasar acuan dalam penetapan pajak transaksi kegiatan ekspor maupun impor.\n" +
+                                "Adapun pembayaran yang terkait dengan kurs ini diantaranya adalah:");
+            System.out.println("- PPN atau Pajak Pertambahan Nilai barang serta jasa");
+            System.out.println("- Bea masuk serta bea keluar");
+            System.out.println("- PPh atau Pajak Penghasilan atas adanya pemasukan barang");
+            System.out.println("- Pajak penjualan barang mewah");
+            System.out.println();
         }
     }
 
